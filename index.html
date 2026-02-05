@@ -3,150 +3,126 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lokasi Jualan Hari Ini</title>
+    <title>CIMOL LEZAT MANG UJI</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
     <style>
-        /* Desain Background & Body */
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            /* Ganti URL di bawah dengan link gambar jualan cimol Anda */
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
-                        url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1000&q=80');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            text-align: center; 
+            background-color: #f4f4f4; 
+            margin: 0; 
+            padding: 20px; 
         }
-
-        /* Kartu Utama */
-        .container {
-            background: rgba(255, 255, 255, 0.95);
-            width: 90%;
-            max-width: 400px;
-            padding: 30px;
-            border-radius: 20px;
-            text-align: center;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+        .card { 
+            background: white; 
+            padding: 30px; 
+            border-radius: 25px; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15); 
+            display: inline-block; 
+            width: 100%; 
+            max-width: 400px; 
+            border-top: 10px solid #e67e22;
         }
-
-        h1 { color: #d35400; margin-bottom: 5px; font-size: 28px; }
-        .brand { font-weight: bold; color: #f39c12; font-size: 20px; margin-bottom: 20px; display: block; }
+        h1 { color: #d35400; margin-bottom: 5px; font-size: 26px; text-transform: uppercase; }
+        h2 { color: #f39c12; margin-top: 0; font-size: 20px; letter-spacing: 2px; }
+        #tanggal { color: #7f8c8d; font-size: 15px; margin-bottom: 25px; font-weight: bold; }
         
-        #tanggal { font-size: 16px; color: #555; margin-bottom: 20px; }
-
-        /* Tampilan QR */
-        canvas {
-            border: 5px solid #f39c12;
-            border-radius: 10px;
-            background: white;
-            padding: 10px;
-            margin-bottom: 20px;
+        canvas { 
+            background: #fff; 
+            padding: 15px; 
+            border: 3px solid #f39c12; 
+            border-radius: 15px;
+            margin-bottom: 10px;
         }
-
-        .btn-maps {
-            display: inline-block;
-            background: #27ae60;
-            color: white;
-            text-decoration: none;
-            padding: 12px 25px;
-            border-radius: 50px;
-            font-weight: bold;
-            margin-top: 10px;
+        
+        .btn-maps { 
+            display: block; 
+            background: #27ae60; 
+            color: white; 
+            padding: 18px; 
+            text-decoration: none; 
+            border-radius: 50px; 
+            font-weight: bold; 
+            margin-top: 25px;
+            font-size: 16px;
+            box-shadow: 0 5px 15px rgba(39, 174, 96, 0.4);
             transition: 0.3s;
         }
-
-        /* Tabel Link Mingguan */
-        .tabel-lokasi {
-            margin-top: 30px;
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 14px;
-        }
-        .tabel-lokasi th { background: #f39c12; color: white; padding: 10px; }
-        .tabel-lokasi td { padding: 10px; border-bottom: 1px solid #ddd; color: #333; }
-        .active-day { background: #fff3cd; font-weight: bold; color: #d35400 !important; }
+        .btn-maps:active { transform: scale(0.98); }
+        .footer { margin-top: 25px; font-size: 13px; color: #bdc3c7; font-style: italic; }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <h1>📍 Lokasi Kami</h1>
-    <span class="brand">CIMOL LEZAT MANG UJI</span>
-    <p id="tanggal"></p>
-
+<div class="card">
+    <h1>CIMOL LEZAT</h1>
+    <h2>MANG UJI</h2>
+    <p id="tanggal">Memuat waktu...</p>
+    
     <canvas id="qr-code"></canvas>
     
-    <br>
-    <a id="link-maps-btn" href="#" target="_blank" class="btn-maps">Buka di Google Maps</a>
-
-    <hr style="margin: 30px 0; border: 0; border-top: 1px solid #eee;">
-
-    <h3>Jadwal Mingguan</h3>
-    <table class="tabel-lokasi" id="tabel-jadwal">
-        <thead>
-            <tr>
-                <th>Hari</th>
-                <th>Lokasi</th>
-            </tr>
-        </thead>
-        <tbody id="isi-tabel">
-            </tbody>
-    </table>
+    <a id="btn-maps" href="#" target="_blank" class="btn-maps">📍 PETUNJUK LOKASI (MAPS)</a>
+    
+    <div class="footer">
+        "Cimol kenyal, bumbu rahasia, mantap di lidah!"
+    </div>
 </div>
 
 <script>
-    // 1. INPUT DATA LOKASI ANDA DI SINI
-    const daftarLokasi = {
-        "Senin Malam Selasa":    { nama: "Paoman", link: "https://maps.app.goo.gl/link1" },
-        "Selasa Malam Rabu":   { nama: "Bunderan Kijang",   link: "https://maps.app.goo.gl/link2" },
-        "Rabu Malam Kamis": { nama: "Libur tidak jualan",        link: "https://maps.app.goo.gl/link3" },
-        "Kamis Malam Jum'at":  { nama: "Karang Song",     link: "https://maps.app.goo.gl/link4" },
-        "Jum'at Malam Sabtu":    { nama: "Sindang",        link: "https://maps.app.goo.gl/link5" },
-        "Sabtu Malam Minggu":  { nama: "CFN Alun-Alun",        link: "https://maps.app.goo.gl/link6" },
-        "Minggu Pagi":    { nama: "Area Kulcim",        link: "https://maps.app.goo.gl/link7" }
-      "Minggu Malam Senin":    { nama: "Terusan Sededel",        link: "https://maps.app.goo.gl/link7" }
+    // === KONFIGURASI LOKASI MANG UJI ===
+    // Ganti teks di dalam tanda kutip dengan link Google Maps asli Anda
+    const lokasiMangUji = {
+        "Monday":    "https://maps.google.com/?q=-6.327,108.320", // Contoh Senin
+        "Tuesday":   "https://maps.google.com/?q=-6.327,108.320", // Contoh Selasa
+        "Wednesday": "https://maps.google.com/?q=-6.327,108.320", // Contoh Rabu
+        "Thursday":  "https://maps.google.com/?q=-6.327,108.320", // Contoh Kamis
+        "Friday":    "https://maps.google.com/?q=-6.327,108.320", // Contoh Jumat
+        "Saturday":  "https://maps.google.com/?q=-6.327,108.320", // Contoh Sabtu
+        "Sunday_Pagi":  "https://maps.google.com/?q=-6.327,108.320", // Lokasi Minggu Pagi (Pukul 00:00 - 11:59)
+        "Sunday_Malam": "https://maps.google.com/?q=-6.327,108.320"  // Lokasi Minggu Malam (Pukul 12:00 - 23:59)
     };
 
-    // 2. LOGIKA PENENTU WAKTU
-    const hariInggris = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-    const hariIndo = ["Minggu", "Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu"];
+    const namaHariEng = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+    const namaHariInd = ["Minggu", "Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu"];
     
-    const skrg = new Date();
-    const namaHariInggris = hariInggris[skrg.getDay()];
-    const namaHariIndo = hariIndo[skrg.getDay()];
-    const dataHariIni = daftarLokasi[namaHariInggris];
+    const sekarang = new Date();
+    const jam = sekarang.getHours(); 
+    const indeksHari = sekarang.getDay();
+    
+    let hariKey = namaHariEng[indeksHari];
+    let ketWaktu = "";
 
-    // Tampilkan Tanggal
-    document.getElementById('tanggal').innerText = namaHariIndo + ", " + skrg.toLocaleDateString('id-ID');
+    // Logika Otomatis Hari Minggu (Pagi & Malam)
+    if (indeksHari === 0) { 
+        if (jam < 12) {
+            hariKey = "Sunday_Pagi";
+            ketWaktu = " (Pagi)";
+        } else {
+            hariKey = "Sunday_Malam";
+            ketWaktu = " (Malam)";
+        }
+    }
 
-    // Tampilkan QR Code
-    var qr = new QRious({
-        element: document.getElementById('qr-code'),
-        value: dataHariIni.link,
-        size: 200,
-        level: 'H'
-    });
+    const linkTujuan = lokasiMangUji[hariKey];
 
-    // Update Tombol Maps
-    document.getElementById('link-maps-btn').href = dataHariIni.link;
+    // Update Teks Tanggal di Layar
+    document.getElementById('tanggal').innerText = namaHariInd[indeksHari] + ketWaktu + ", " + sekarang.toLocaleDateString('id-ID');
 
-    // 3. GENERATE TABEL JADWAL
-    const isiTabel = document.getElementById('isi-tabel');
-    hariInggris.forEach((hIng, index) => {
-        let row = isiTabel.insertRow();
-        if (hIng === namaHariInggris) row.className = "active-day";
+    // Proses Pembuatan Kode QR
+    try {
+        const qr = new QRious({
+            element: document.getElementById('qr-code'),
+            value: linkTujuan,
+            size: 280,
+            level: 'H' // Kualitas High agar mudah discan meski cahaya kurang
+        });
         
-        let cellHari = row.insertCell(0);
-        let cellLokasi = row.insertCell(1);
-        
-        cellHari.innerHTML = hariIndo[index];
-        cellLokasi.innerHTML = daftarLokasi[hIng].nama;
-    });
+        // Update Link pada Tombol Hijau
+        document.getElementById('btn-maps').href = linkTujuan;
+    } catch (err) {
+        console.error("Gagal membuat QR:", err);
+        document.getElementById('tanggal').innerText = "Maaf, terjadi kesalahan teknis.";
+    }
 </script>
 
 </body>
