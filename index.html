@@ -39,13 +39,13 @@
         
         .hero h1 { 
             font-family: 'Playfair Display', serif; 
-            font-size: 3.5rem; 
+            font-size: 3rem; 
             margin-bottom: 10px; 
             color: var(--gold); 
             letter-spacing: 2px;
         }
         
-        .hero p { font-size: 1.2rem; margin-bottom: 40px; font-weight: 300; letter-spacing: 1px; }
+        .hero p { font-size: 1.1rem; margin-bottom: 40px; font-weight: 300; letter-spacing: 1px; }
         
         .btn-gold {
             background: transparent;
@@ -53,9 +53,7 @@
             padding: 15px 45px;
             text-decoration: none;
             border: 2px solid var(--gold);
-            border-radius: 0;
             font-weight: 600;
-            font-size: 1rem;
             transition: 0.4s ease;
             text-transform: uppercase;
         }
@@ -64,7 +62,7 @@
 
         /* --- STORYTELLING SECTION --- */
         .story-section {
-            padding: 100px 20px;
+            padding: 80px 20px;
             text-align: center;
             background: white;
         }
@@ -79,7 +77,7 @@
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 30px;
+            gap: 20px;
             padding: 50px 20px;
             background: var(--dark);
         }
@@ -107,6 +105,7 @@
             left: 20px;
             color: white;
             z-index: 2;
+            text-align: left;
         }
 
         /* --- DAY SECTIONS --- */
@@ -117,6 +116,7 @@
             flex-direction: column;
             align-items: center;
             background: var(--ivory);
+            box-sizing: border-box;
         }
 
         .day-card {
@@ -130,7 +130,7 @@
             border: 1px solid #eee;
         }
 
-        .img-lapak { width: 100%; height: 280px; object-fit: cover; }
+        .img-lapak { width: 100%; height: 250px; object-fit: cover; }
         .day-content { padding: 40px; }
         .day-content h2 { font-family: 'Playfair Display', serif; font-size: 1.8rem; margin: 0; color: var(--dark); }
         .day-content h3 { color: var(--gold); margin: 10px 0 25px; font-size: 1rem; text-transform: uppercase; letter-spacing: 2px; }
@@ -144,7 +144,6 @@
             font-weight: 600;
             margin-bottom: 15px;
             transition: 0.3s;
-            letter-spacing: 1px;
         }
 
         .btn-wa {
@@ -155,15 +154,13 @@
             text-decoration: none;
             font-weight: 600;
             transition: 0.3s;
-            letter-spacing: 1px;
         }
 
-        .btn-maps:hover, .btn-wa:hover { opacity: 0.8; }
         .nav-next { margin-top: 30px; color: #aaa; text-decoration: none; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 2px; }
 
-        /* Utility */
         .luxury-bg { background: #111 !important; color: white !important; }
         .luxury-bg h2, .luxury-bg h3 { color: var(--gold) !important; }
+        .luxury-bg .day-card { background: #1a1a1a; border: 1px solid #333; }
     </style>
 </head>
 <body>
@@ -189,14 +186,14 @@
 
     <section class="menu-preview">
         <div class="menu-item">
-            <img src="https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?q=80&w=500" alt="Cimol Original">
+            <img src="https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?w=500" alt="Cimol Classic">
             <div class="menu-label">
                 <h3>Cimol Classic Gold</h3>
                 <p>Signature Flavor</p>
             </div>
         </div>
         <div class="menu-item">
-            <img src="https://images.unsplash.com/photo-1563379091339-03b17af4a4f9?q=80&w=500" alt="Cimol Pedas">
+            <img src="https://images.unsplash.com/photo-1563379091339-03b17af4a4f9?w=500" alt="Cimol Spiced">
             <div class="menu-label">
                 <h3>Spicy Lava Cimol</h3>
                 <p>Extra Hot Perfection</p>
@@ -230,6 +227,70 @@
         <a href="#rabu" class="nav-next">Next Destination ↓</a>
     </div>
 
+    <div id="rabu" class="day-section">
+        <div class="day-card">
+            <img class="img-lapak" src="https://images.unsplash.com/photo-1506784919141-939e9e815d39?w=500" alt="Libur">
+            <div class="day-content">
+                <h2>RABU MALAM KAMIS</h2>
+                <h3 style="color:#e74c3c !important;">CLOSED (Day Off)</h3>
+                <p>Resting to serve you better tomorrow.</p>
+            </div>
+        </div>
+        <a href="#kamis" class="nav-next">Next Destination ↓</a>
+    </div>
+
+    <div id="kamis" class="day-section luxury-bg">
+        <div class="day-card">
+            <img class="img-lapak" src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=500" alt="KarangSong">
+            <div class="day-content">
+                <h2>KAMIS MALAM JUM'AT</h2>
+                <h3>Location: KarangSong</h3>
+                <a href="https://goo.gl/maps/iT3jTfowX7wuzvjU7" class="btn-maps" target="_blank">GET DIRECTION</a>
+                <a href="https://wa.me/6287843244480?text=Halo%20Mang%20Uji,%20saya%20mau%20booking%20untuk%20beli%20nanti%20di%20KarangSong" class="btn-wa" target="_blank">RESERVE VIA WHATSAPP</a>
+            </div>
+        </div>
+        <a href="#jumat" class="nav-next">Next Destination ↓</a>
+    </div>
+
+    <div id="jumat" class="day-section">
+        <div class="day-card">
+            <img class="img-lapak" src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=500" alt="Sindang">
+            <div class="day-content">
+                <h2>JUM'AT MALAM SABTU</h2>
+                <h3>Location: Sindang</h3>
+                <a href="https://goo.gl/maps/AQJiFZMubnhETUsV9" class="btn-maps" target="_blank">GET DIRECTION</a>
+                <a href="https://wa.me/6287843244480?text=Halo%20Mang%20Uji,%20saya%20mau%20booking%20untuk%20beli%20nanti%20di%20Sindang" class="btn-wa" target="_blank">RESERVE VIA WHATSAPP</a>
+            </div>
+        </div>
+        <a href="#sabtu" class="nav-next">Next Destination ↓</a>
+    </div>
+
+    <div id="sabtu" class="day-section luxury-bg">
+        <div class="day-card">
+            <img class="img-lapak" src="https://images.unsplash.com/photo-1499028344343-cd173ffc68a9?w=500" alt="CFN">
+            <div class="day-content">
+                <h2>SABTU MALAM MINGGU</h2>
+                <h3>Location: CFN Alun-alun</h3>
+                <a href="https://goo.gl/maps/Q3PcyEtNBkoMuSPq9" class="btn-maps" target="_blank">GET DIRECTION</a>
+                <a href="https://wa.me/6287843244480?text=Halo%20Mang%20Uji,%20saya%20mau%20booking%20untuk%20beli%20nanti%20di%20CFN%20Alun-alun" class="btn-wa" target="_blank">RESERVE VIA WHATSAPP</a>
+            </div>
+        </div>
+        <a href="#minggu-pagi" class="nav-next">Next Destination ↓</a>
+    </div>
+
+    <div id="minggu-pagi" class="day-section">
+        <div class="day-card">
+            <img class="img-lapak" src="https://images.unsplash.com/photo-1543007630-9710e4a00a20?w=500" alt="Kulcim">
+            <div class="day-content">
+                <h2>MINGGU PAGI</h2>
+                <h3>Location: Kulcim Alun-alun</h3>
+                <a href="https://goo.gl/maps/i6bWhbJSJyDm9ZdP7" class="btn-maps" target="_blank">GET DIRECTION</a>
+                <a href="https://wa.me/6287843244480?text=Halo%20Mang%20Uji,%20saya%20mau%20booking%20untuk%20beli%20nanti%20di%20Kulcim%20Alun-alun" class="btn-wa" target="_blank">RESERVE VIA WHATSAPP</a>
+            </div>
+        </div>
+        <a href="#minggu-malam" class="nav-next">Next Destination ↓</a>
+    </div>
+
     <div id="minggu-malam" class="day-section luxury-bg">
         <div class="day-card">
             <img class="img-lapak" src="https://images.unsplash.com/photo-1534422298391-e4f8c170db06?w=500" alt="Sukadedel">
@@ -244,5 +305,5 @@
     </div>
 
 </body>
-                </html>
-    
+    </html>
+                                        
