@@ -3,25 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TEMPAT JUALAN CIMOL LEZAT MANG UJI</title>
+    <title>CIMOL LEZAT MANG UJI - Premium Street Food</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --gold: #d4af37;
+            --dark: #1a1a1a;
+            --ivory: #fcfaf2;
+        }
+
         body { 
-            font-family: 'Segoe UI', sans-serif; 
+            font-family: 'Poppins', sans-serif; 
             margin: 0; 
             padding: 0; 
-            background: #f4f4f4; 
+            background: var(--ivory); 
             scroll-behavior: smooth;
+            color: var(--dark);
         }
-        
-        /* Halaman Utama / Hero */
+
+        /* --- HERO SECTION --- */
         .hero {
             height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
-                        url('https://images.unsplash.com/photo-1565123409695-7b5ef63a2efb?q=80&w=1000'); 
+            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), 
+                        url('https://images.unsplash.com/photo-1555939594-58d7cb561ad1?q=80&w=1000'); 
             background-size: cover;
             background-position: center;
             color: white;
@@ -29,203 +37,212 @@
             padding: 20px;
         }
         
-        .hero h1 { font-size: 32px; margin-bottom: 10px; color: #f39c12; }
-        .hero p { font-size: 18px; margin-bottom: 30px; }
+        .hero h1 { 
+            font-family: 'Playfair Display', serif; 
+            font-size: 3.5rem; 
+            margin-bottom: 10px; 
+            color: var(--gold); 
+            letter-spacing: 2px;
+        }
         
-        .btn-start {
-            background: #e67e22;
-            color: white;
-            padding: 15px 40px;
+        .hero p { font-size: 1.2rem; margin-bottom: 40px; font-weight: 300; letter-spacing: 1px; }
+        
+        .btn-gold {
+            background: transparent;
+            color: var(--gold);
+            padding: 15px 45px;
             text-decoration: none;
-            border-radius: 50px;
-            font-weight: bold;
-            font-size: 18px;
-            box-shadow: 0 5px 15px rgba(230, 126, 34, 0.4);
+            border: 2px solid var(--gold);
+            border-radius: 0;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: 0.4s ease;
+            text-transform: uppercase;
         }
 
-        /* Bagian Hari */
+        .btn-gold:hover { background: var(--gold); color: var(--dark); }
+
+        /* --- STORYTELLING SECTION --- */
+        .story-section {
+            padding: 100px 20px;
+            text-align: center;
+            background: white;
+        }
+
+        .story-container { max-width: 800px; margin: 0 auto; }
+        .story-container h2 { font-family: 'Playfair Display', serif; font-size: 2.5rem; color: var(--dark); }
+        .story-container p { line-height: 1.8; color: #555; font-size: 1.1rem; }
+        .gold-line { width: 50px; height: 3px; background: var(--gold); margin: 20px auto; }
+
+        /* --- MENU ANIMASI --- */
+        .menu-preview {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            padding: 50px 20px;
+            background: var(--dark);
+        }
+
+        .menu-item {
+            position: relative;
+            width: 300px;
+            height: 400px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .menu-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 1.5s ease;
+        }
+
+        .menu-item:hover img { transform: scale(1.15); }
+
+        .menu-label {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            color: white;
+            z-index: 2;
+        }
+
+        /* --- DAY SECTIONS --- */
         .day-section {
             min-height: 100vh;
-            padding: 60px 20px;
+            padding: 80px 20px;
             display: flex;
             flex-direction: column;
             align-items: center;
-            box-sizing: border-box;
+            background: var(--ivory);
         }
 
         .day-card {
             background: white;
             width: 100%;
-            max-width: 400px;
-            border-radius: 20px;
+            max-width: 450px;
+            border-radius: 0;
             overflow: hidden;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.05);
             text-align: center;
-            margin-bottom: 20px;
+            border: 1px solid #eee;
         }
 
-        .img-lapak {
-            width: 100%;
-            height: 220px;
-            object-fit: cover;
-        }
-
-        .day-content { padding: 25px; }
-        .day-content h2 { color: #d35400; margin: 0 0 5px 0; font-size: 22px; }
-        .day-content h3 { color: #7f8c8d; margin: 0 0 15px 0; font-size: 16px; font-weight: normal; }
+        .img-lapak { width: 100%; height: 280px; object-fit: cover; }
+        .day-content { padding: 40px; }
+        .day-content h2 { font-family: 'Playfair Display', serif; font-size: 1.8rem; margin: 0; color: var(--dark); }
+        .day-content h3 { color: var(--gold); margin: 10px 0 25px; font-size: 1rem; text-transform: uppercase; letter-spacing: 2px; }
         
-        /* Tombol */
         .btn-maps {
             display: block;
-            background: #27ae60;
+            background: var(--dark);
             color: white;
-            padding: 15px;
+            padding: 18px;
             text-decoration: none;
-            border-radius: 12px;
-            font-weight: bold;
+            font-weight: 600;
             margin-bottom: 15px;
+            transition: 0.3s;
+            letter-spacing: 1px;
         }
 
         .btn-wa {
             display: block;
-            background: #25d366;
-            color: white;
-            padding: 15px;
+            background: var(--gold);
+            color: var(--dark);
+            padding: 18px;
             text-decoration: none;
-            border-radius: 12px;
-            font-weight: bold;
+            font-weight: 600;
+            transition: 0.3s;
+            letter-spacing: 1px;
         }
 
-        .nav-next {
-            margin-top: 20px;
-            color: #7f8c8d;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 14px;
-        }
+        .btn-maps:hover, .btn-wa:hover { opacity: 0.8; }
+        .nav-next { margin-top: 30px; color: #aaa; text-decoration: none; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 2px; }
 
-        /* Warna Latar Belakang Per Hari */
-        #senin { background: #fff5f5; }
-        #selasa { background: #fff9f0; }
-        #rabu { background: #f2f2f2; }
-        #kamis { background: #f0f7ff; }
-        #jumat { background: #f5f0ff; }
-        #sabtu { background: #fff0f5; }
-        #minggu-pagi { background: #fffde7; }
-        #minggu-malam { background: #e3f2fd; }
+        /* Utility */
+        .luxury-bg { background: #111 !important; color: white !important; }
+        .luxury-bg h2, .luxury-bg h3 { color: var(--gold) !important; }
     </style>
 </head>
 <body>
 
     <div id="home" class="hero">
-        <h1>LOKASI JUALAN<br>CIMOL LEZAT MANG UJI</h1>
-        <p>Cimol kenyal, bumbu mantap!<br>Klik tombol di bawah untuk cek lokasi harian</p>
-        <a href="#senin" class="btn-start">LIHAT LOKASI</a>
+        <h1>MANG UJI</h1>
+        <p>THE ART OF PREMIUM CIMOL</p>
+        <a href="#history" class="btn-gold">Explore Our Story</a>
     </div>
+
+    <section id="history" class="story-section">
+        <div class="story-container">
+            <h2>Our Heritage</h2>
+            <div class="gold-line"></div>
+            <p>
+                Berawal dari sebuah mimpi sederhana di sudut kota, Mang Uji memulai perjalanan kulinernya dengan satu gerobak kayu kecil. 
+                Dengan dedikasi pada rasa dan kualitas bahan terbaik, Cimol Lezat Mang Uji bertransformasi dari jajanan kaki lima biasa 
+                menjadi sebuah mahakarya rasa yang dicintai banyak orang hingga saat ini. 
+                Setiap butir cimol adalah bukti konsistensi kami dalam menjaga tradisi kuliner yang otentik.
+            </p>
+        </div>
+    </section>
+
+    <section class="menu-preview">
+        <div class="menu-item">
+            <img src="https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?q=80&w=500" alt="Cimol Original">
+            <div class="menu-label">
+                <h3>Cimol Classic Gold</h3>
+                <p>Signature Flavor</p>
+            </div>
+        </div>
+        <div class="menu-item">
+            <img src="https://images.unsplash.com/photo-1563379091339-03b17af4a4f9?q=80&w=500" alt="Cimol Pedas">
+            <div class="menu-label">
+                <h3>Spicy Lava Cimol</h3>
+                <p>Extra Hot Perfection</p>
+            </div>
+        </div>
+    </section>
 
     <div id="senin" class="day-section">
         <div class="day-card">
             <img class="img-lapak" src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=500" alt="Paoman">
             <div class="day-content">
                 <h2>SENIN MALAM SELASA</h2>
-                <h3>Lokasi: Paoman</h3>
-                <a href="https://goo.gl/maps/Xmn8CXCkfUKDDEsm6" class="btn-maps" target="_blank">📍 CEK LOKASI</a>
-                <a href="https://wa.me/6287843244480?text=Halo%20Mang%20Uji,%20saya%20mau%20booking%20untuk%20beli%20nanti%20di%20Paoman" class="btn-wa" target="_blank">💬 Booking via WhatsApp</a>
+                <h3>Location: Paoman</h3>
+                <a href="https://goo.gl/maps/Xmn8CXCkfUKDDEsm6" class="btn-maps" target="_blank">GET DIRECTION</a>
+                <a href="https://wa.me/6287843244480?text=Halo%20Mang%20Uji,%20saya%20mau%20booking%20untuk%20beli%20nanti%20di%20Paoman" class="btn-wa" target="_blank">RESERVE VIA WHATSAPP</a>
             </div>
         </div>
-        <a href="#selasa" class="nav-next">Ke Selasa Malam Rabu ↓</a>
+        <a href="#selasa" class="nav-next">Next Destination ↓</a>
     </div>
 
-    <div id="selasa" class="day-section">
+    <div id="selasa" class="day-section luxury-bg">
         <div class="day-card">
             <img class="img-lapak" src="https://images.unsplash.com/photo-1562601519-1bb32a8dd5dd?w=500" alt="Bunderan Kijang">
             <div class="day-content">
                 <h2>SELASA MALAM RABU</h2>
-                <h3>Lokasi: Bunderan Kijang</h3>
-                <a href="https://goo.gl/maps/DLG3zC87gLoD5uug8" class="btn-maps" target="_blank">📍 CEK LOKASI</a>
-                <a href="https://wa.me/6287843244480?text=Halo%20Mang%20Uji,%20saya%20mau%20booking%20untuk%20beli%20nanti%20di%20Bunderan%20Kijang" class="btn-wa" target="_blank">💬 Booking via WhatsApp</a>
+                <h3>Location: Bunderan Kijang</h3>
+                <a href="https://goo.gl/maps/DLG3zC87gLoD5uug8" class="btn-maps" target="_blank">GET DIRECTION</a>
+                <a href="https://wa.me/6287843244480?text=Halo%20Mang%20Uji,%20saya%20mau%20booking%20untuk%20beli%20nanti%20di%20Bunderan%20Kijang" class="btn-wa" target="_blank">RESERVE VIA WHATSAPP</a>
             </div>
         </div>
-        <a href="#rabu" class="nav-next">Ke Rabu Malam Kamis ↓</a>
+        <a href="#rabu" class="nav-next">Next Destination ↓</a>
     </div>
 
-    <div id="rabu" class="day-section">
-        <div class="day-card">
-            <img class="img-lapak" src="https://images.unsplash.com/photo-1506784919141-939e9e815d39?w=500" alt="Libur">
-            <div class="day-content">
-                <h2>RABU MALAM KAMIS</h2>
-                <h3 style="color:#e74c3c; font-weight:bold;">TUTUP (Libur Tidak Jualan)</h3>
-                <p>Sampai jumpa di hari Kamis!</p>
-            </div>
-        </div>
-        <a href="#kamis" class="nav-next">Ke Kamis Malam Jum'at ↓</a>
-    </div>
-
-    <div id="kamis" class="day-section">
-        <div class="day-card">
-            <img class="img-lapak" src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=500" alt="KarangSong">
-            <div class="day-content">
-                <h2>KAMIS MALAM JUM'AT</h2>
-                <h3>Lokasi: KarangSong</h3>
-                <a href="https://goo.gl/maps/iT3jTfowX7wuzvjU7" class="btn-maps" target="_blank">📍 CEK LOKASI</a>
-                <a href="https://wa.me/6287843244480?text=Halo%20Mang%20Uji,%20saya%20mau%20booking%20untuk%20beli%20nanti%20di%20KarangSong" class="btn-wa" target="_blank">💬 Booking via WhatsApp</a>
-            </div>
-        </div>
-        <a href="#jumat" class="nav-next">Ke Jum'at Malam Sabtu ↓</a>
-    </div>
-
-    <div id="jumat" class="day-section">
-        <div class="day-card">
-            <img class="img-lapak" src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=500" alt="Sindang">
-            <div class="day-content">
-                <h2>JUM'AT MALAM SABTU</h2>
-                <h3>Lokasi: Sindang</h3>
-                <a href="https://goo.gl/maps/AQJiFZMubnhETUsV9" class="btn-maps" target="_blank">📍 CEK LOKASI</a>
-                <a href="https://wa.me/6287843244480?text=Halo%20Mang%20Uji,%20saya%20mau%20booking%20untuk%20beli%20nanti%20di%20Sindang" class="btn-wa" target="_blank">💬 Booking via WhatsApp</a>
-            </div>
-        </div>
-        <a href="#sabtu" class="nav-next">Ke Sabtu Malam Minggu ↓</a>
-    </div>
-
-    <div id="sabtu" class="day-section">
-        <div class="day-card">
-            <img class="img-lapak" src="https://images.unsplash.com/photo-1499028344343-cd173ffc68a9?w=500" alt="CFN">
-            <div class="day-content">
-                <h2>SABTU MALAM MINGGU</h2>
-                <h3>Lokasi: CFN Alun-alun</h3>
-                <a href="https://goo.gl/maps/Q3PcyEtNBkoMuSPq9" class="btn-maps" target="_blank">📍 CEK LOKASI</a>
-                <a href="https://wa.me/6287843244480?text=Halo%20Mang%20Uji,%20saya%20mau%20booking%20untuk%20beli%20nanti%20di%20CFN%20Alun-alun" class="btn-wa" target="_blank">💬 Booking via WhatsApp</a>
-            </div>
-        </div>
-        <a href="#minggu-pagi" class="nav-next">Ke Minggu Pagi ↓</a>
-    </div>
-
-    <div id="minggu-pagi" class="day-section">
-        <div class="day-card">
-            <img class="img-lapak" src="https://images.unsplash.com/photo-1543007630-9710e4a00a20?w=500" alt="Kulcim">
-            <div class="day-content">
-                <h2>MINGGU PAGI</h2>
-                <h3>Lokasi: Area Kulcim Alun-alun</h3>
-                <a href="https://goo.gl/maps/i6bWhbJSJyDm9ZdP7" class="btn-maps" target="_blank">📍 CEK LOKASI</a>
-                <a href="https://wa.me/6287843244480?text=Halo%20Mang%20Uji,%20saya%20mau%20booking%20untuk%20beli%20nanti%20di%20Kulcim%20Alun-alun" class="btn-wa" target="_blank">💬 Booking via WhatsApp</a>
-            </div>
-        </div>
-        <a href="#minggu-malam" class="nav-next">Ke Minggu Malam Senin ↓</a>
-    </div>
-
-    <div id="minggu-malam" class="day-section">
+    <div id="minggu-malam" class="day-section luxury-bg">
         <div class="day-card">
             <img class="img-lapak" src="https://images.unsplash.com/photo-1534422298391-e4f8c170db06?w=500" alt="Sukadedel">
             <div class="day-content">
                 <h2>MINGGU MALAM SENIN</h2>
-                <h3>Lokasi: Sukadedel</h3>
-                <a href="https://goo.gl/maps/t7HCoRk2q3jG4PjR8" class="btn-maps" target="_blank">📍 CEK LOKASI</a>
-                <a href="https://wa.me/6287843244480?text=Halo%20Mang%20Uji,%20saya%20mau%20booking%20untuk%20beli%20nanti%20di%20Sukadedel" class="btn-wa" target="_blank">💬 Booking via WhatsApp</a>
+                <h3>Location: Sukadedel</h3>
+                <a href="https://goo.gl/maps/t7HCoRk2q3jG4PjR8" class="btn-maps" target="_blank">GET DIRECTION</a>
+                <a href="https://wa.me/6287843244480?text=Halo%20Mang%20Uji,%20saya%20mau%20booking%20untuk%20beli%20nanti%20di%20Sukadedel" class="btn-wa" target="_blank">RESERVE VIA WHATSAPP</a>
             </div>
         </div>
-        <a href="#home" class="nav-next">Kembali ke Atas ↑</a>
+        <a href="#home" class="nav-next">Back to Top ↑</a>
     </div>
 
 </body>
-    </html>
+                </html>
     
