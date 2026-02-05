@@ -4,126 +4,173 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CIMOL LEZAT MANG UJI</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
     <style>
         body { 
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-            text-align: center; 
-            background-color: #f4f4f4; 
+            font-family: 'Segoe UI', sans-serif; 
             margin: 0; 
-            padding: 20px; 
-        }
-        .card { 
-            background: white; 
-            padding: 30px; 
-            border-radius: 25px; 
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15); 
-            display: inline-block; 
-            width: 100%; 
-            max-width: 400px; 
-            border-top: 10px solid #e67e22;
-        }
-        h1 { color: #d35400; margin-bottom: 5px; font-size: 26px; text-transform: uppercase; }
-        h2 { color: #f39c12; margin-top: 0; font-size: 20px; letter-spacing: 2px; }
-        #tanggal { color: #7f8c8d; font-size: 15px; margin-bottom: 25px; font-weight: bold; }
-        
-        canvas { 
-            background: #fff; 
-            padding: 15px; 
-            border: 3px solid #f39c12; 
-            border-radius: 15px;
-            margin-bottom: 10px;
+            padding: 0; 
+            background: #f4f4f4; 
+            scroll-behavior: smooth;
         }
         
-        .btn-maps { 
-            display: block; 
-            background: #27ae60; 
-            color: white; 
-            padding: 18px; 
-            text-decoration: none; 
-            border-radius: 50px; 
-            font-weight: bold; 
-            margin-top: 25px;
-            font-size: 16px;
-            box-shadow: 0 5px 15px rgba(39, 174, 96, 0.4);
-            transition: 0.3s;
+        /* Halaman Utama / Hero */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+                        url('https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=1000&q=80'); /* GANTI: Link Foto Gerobak Utama */
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 20px;
         }
-        .btn-maps:active { transform: scale(0.98); }
-        .footer { margin-top: 25px; font-size: 13px; color: #bdc3c7; font-style: italic; }
+        
+        .hero h1 { font-size: 35px; margin-bottom: 5px; color: #f39c12; }
+        .hero p { font-size: 18px; margin-bottom: 30px; }
+        
+        .btn-start {
+            background: #e67e22;
+            color: white;
+            padding: 15px 40px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 18px;
+            box-shadow: 0 5px 15px rgba(230, 126, 34, 0.4);
+        }
+
+        /* Bagian Hari */
+        .day-section {
+            min-height: 100vh;
+            padding: 60px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-sizing: border-box;
+        }
+
+        .day-card {
+            background: white;
+            width: 100%;
+            max-width: 400px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .img-lapak {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+
+        .day-content { padding: 25px; }
+        .day-content h2 { color: #d35400; margin: 0 0 15px 0; font-size: 24px; }
+        
+        /* Tombol-tombol */
+        .btn-maps {
+            display: block;
+            background: #27ae60;
+            color: white;
+            padding: 15px;
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .btn-wa {
+            display: block;
+            background: #25d366;
+            color: white;
+            padding: 15px;
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: bold;
+        }
+
+        .nav-next {
+            margin-top: 20px;
+            color: #7f8c8d;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        /* Warna latar belakang per hari agar menarik */
+        #senin { background: #fff5f5; }
+        #selasa { background: #fff9f0; }
+        #rabu { background: #f0fff4; }
+        #kamis { background: #f0f7ff; }
+        #jumat { background: #f5f0ff; }
+        #sabtu { background: #fff0f5; }
+        #minggu-pagi { background: #fffde7; }
+        #minggu-malam { background: #e3f2fd; }
     </style>
 </head>
 <body>
 
-<div class="card">
-    <h1>CIMOL LEZAT</h1>
-    <h2>MANG UJI</h2>
-    <p id="tanggal">Memuat waktu...</p>
-    
-    <canvas id="qr-code"></canvas>
-    
-    <a id="btn-maps" href="#" target="_blank" class="btn-maps">📍 PETUNJUK LOKASI (MAPS)</a>
-    
-    <div class="footer">
-        "Cimol kenyal, bumbu rahasia, mantap di lidah!"
+    <div id="home" class="hero">
+        <h1>CIMOL LEZAT MANG UJI</h1>
+        <p>Lokasi Jualan Terkini & Booking Online</p>
+        <a href="#senin" class="btn-start">LIHAT LOKASI</a>
     </div>
-</div>
 
-<script>
-    // === KONFIGURASI LOKASI MANG UJI ===
-    // Ganti teks di dalam tanda kutip dengan link Google Maps asli Anda
-    const lokasiMangUji = {
-        "Monday":    "https://maps.google.com/?q=-6.327,108.320", // Contoh Senin
-        "Tuesday":   "https://maps.google.com/?q=-6.327,108.320", // Contoh Selasa
-        "Wednesday": "https://maps.google.com/?q=-6.327,108.320", // Contoh Rabu
-        "Thursday":  "https://maps.google.com/?q=-6.327,108.320", // Contoh Kamis
-        "Friday":    "https://maps.google.com/?q=-6.327,108.320", // Contoh Jumat
-        "Saturday":  "https://maps.google.com/?q=-6.327,108.320", // Contoh Sabtu
-        "Sunday_Pagi":  "https://maps.google.com/?q=-6.327,108.320", // Lokasi Minggu Pagi (Pukul 00:00 - 11:59)
-        "Sunday_Malam": "https://maps.google.com/?q=-6.327,108.320"  // Lokasi Minggu Malam (Pukul 12:00 - 23:59)
-    };
+    <div id="senin" class="day-section">
+        <div class="day-card">
+            <img class="img-lapak" src="https://via.placeholder.com/400x220?text=Foto+Gerobak+Senin" alt="Lapak Senin">
+            <div class="day-content">
+                <h2>ISNIN</h2>
+                <a href="LINK_MAPS_SENIN" class="btn-maps" target="_blank">📍 CEK LOKASI</a>
+                <a href="https://wa.me/6282120347263?text=Halo%20Mang%20Uji,%20saya%20mau%20booking%20cimol%20untuk%20hari%20Senin" class="btn-wa" target="_blank">💬 Booking via WhatsApp</a>
+            </div>
+        </div>
+        <a href="#selasa" class="nav-next">Ke Selasa ↓</a>
+    </div>
 
-    const namaHariEng = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-    const namaHariInd = ["Minggu", "Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu"];
-    
-    const sekarang = new Date();
-    const jam = sekarang.getHours(); 
-    const indeksHari = sekarang.getDay();
-    
-    let hariKey = namaHariEng[indeksHari];
-    let ketWaktu = "";
+    <div id="selasa" class="day-section">
+        <div class="day-card">
+            <img class="img-lapak" src="https://via.placeholder.com/400x220?text=Foto+Gerobak+Selasa" alt="Lapak Selasa">
+            <div class="day-content">
+                <h2>SELASA</h2>
+                <a href="LINK_MAPS_SELASA" class="btn-maps" target="_blank">📍 CEK LOKASI</a>
+                <a href="https://wa.me/6282120347263?text=Halo%20Mang%20Uji,%20saya%20mau%20booking%20cimol%20untuk%20hari%20Selasa" class="btn-wa" target="_blank">💬 Booking via WhatsApp</a>
+            </div>
+        </div>
+        <a href="#minggu-pagi" class="nav-next">Lompat ke Minggu ↓</a>
+    </div>
 
-    // Logika Otomatis Hari Minggu (Pagi & Malam)
-    if (indeksHari === 0) { 
-        if (jam < 12) {
-            hariKey = "Sunday_Pagi";
-            ketWaktu = " (Pagi)";
-        } else {
-            hariKey = "Sunday_Malam";
-            ketWaktu = " (Malam)";
-        }
-    }
+    <div id="minggu-pagi" class="day-section">
+        <div class="day-card">
+            <img class="img-lapak" src="https://via.placeholder.com/400x220?text=Foto+Lapak+Minggu+Pagi" alt="Lapak Minggu Pagi">
+            <div class="day-content">
+                <h2>AHAD (PAGI)</h2>
+                <p style="margin-top:-10px; color:#666;">Lokasi CFD / Sarapan</p>
+                <a href="LINK_MAPS_MINGGU_PAGI" class="btn-maps" target="_blank">📍 CEK LOKASI</a>
+                <a href="https://wa.me/6282120347263?text=Halo%20Mang%20Uji,%20saya%20mau%20booking%20cimol%20untuk%20Minggu%20Pagi" class="btn-wa" target="_blank">💬 Booking via WhatsApp</a>
+            </div>
+        </div>
+        <a href="#minggu-malam" class="nav-next">Ke Minggu Malam ↓</a>
+    </div>
 
-    const linkTujuan = lokasiMangUji[hariKey];
-
-    // Update Teks Tanggal di Layar
-    document.getElementById('tanggal').innerText = namaHariInd[indeksHari] + ketWaktu + ", " + sekarang.toLocaleDateString('id-ID');
-
-    // Proses Pembuatan Kode QR
-    try {
-        const qr = new QRious({
-            element: document.getElementById('qr-code'),
-            value: linkTujuan,
-            size: 280,
-            level: 'H' // Kualitas High agar mudah discan meski cahaya kurang
-        });
-        
-        // Update Link pada Tombol Hijau
-        document.getElementById('btn-maps').href = linkTujuan;
-    } catch (err) {
-        console.error("Gagal membuat QR:", err);
-        document.getElementById('tanggal').innerText = "Maaf, terjadi kesalahan teknis.";
-    }
-</script>
+    <div id="minggu-malam" class="day-section">
+        <div class="day-card">
+            <img class="img-lapak" src="https://via.placeholder.com/400x220?text=Foto+Lapak+Minggu+Malam" alt="Lapak Minggu Malam">
+            <div class="day-content">
+                <h2>AHAD (MALAM)</h2>
+                <p style="margin-top:-10px; color:#666;">Lokasi Mangkal Malam</p>
+                <a href="LINK_MAPS_MINGGU_MALAM" class="btn-maps" target="_blank">📍 CEK LOKASI</a>
+                <a href="https://wa.me/6282120347263?text=Halo%20Mang%20Uji,%20saya%20mau%20booking%20cimol%20untuk%20Minggu%20Malam" class="btn-wa" target="_blank">💬 Booking via WhatsApp</a>
+            </div>
+        </div>
+        <a href="#home" class="nav-next">Kembali ke Atas ↑</a>
+    </div>
 
 </body>
 </html>
