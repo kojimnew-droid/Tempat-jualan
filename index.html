@@ -37,7 +37,7 @@
         .btn-gold-outline {
             width: 100%; background: transparent; color: var(--gold); padding: 14px 0;
             text-decoration: none; border: 1px solid rgba(212, 175, 55, 0.5);
-            font-weight: 400; transition: 0.4s ease; text-transform: uppercase;
+            font-weight: 400; transition: all 0.4s ease; text-transform: uppercase;
             font-size: 0.75rem; cursor: pointer; text-align: center; letter-spacing: 3px;
         }
         .btn-gold-outline:hover { background: rgba(212, 175, 55, 0.1); border-color: var(--gold); }
@@ -116,7 +116,7 @@
         <div style="max-width: 800px; margin: 0 auto;">
             <h2 style="font-family: 'Playfair Display', serif; font-size: 2.5rem;">Mahakarya Dari Sebuah Kegagalan</h2>
             <div class="gold-divider" style="background:var(--gold)"></div>
-            <p style="line-height: 1.8; color: #555; text-align: justify;">Di balik renyah dan gurihnya Cimol Lezat Mang Uji, tersimpan rahasia perjuangan Ahmad Fauji (Mang Uji) sejak 2005. Berawal dari gerobak kayu hingga kini ditarik motor, rasa legendaris ini tetap konsisten terjaga.</p>
+            <p style="line-height: 1.8; color: #555; text-align: justify;">Di balik renyah dan gurihnya Cimol Lezat Mang Uji, tersimpan rahasia perjuangan Ahmad Fauji (Mang Uji) sejak 2005. Berawal dari gerobak kayu hingga kini ditarik motor, rasa legendaris ini tetap konsisten terjaga bagi pelanggan setia.</p>
         </div>
     </section>
 
@@ -326,11 +326,14 @@
             if (activeId) {
                 window.location.hash = activeId;
                 const data = infoJadwal[hari === 0 && jam >= 15 ? "0-malam" : hari];
-                openModal("BERJUALAN", "KAMI SEDANG BUKA HARI INI!", "Silahkan cek lokasi pada bagian <b>" + data.nama + "</b> untuk petunjuk arah Maps.");
+                openModal("BERJUALAN", "KAMI SEDANG BUKA HARI INI!", "Silahkan cek lokasi pada bagian <b>" + data.nama + "</b> untuk mendapatkan arah Maps.");
             } 
+            else if (hari === 3) {
+                openModal("SEDANG LIBUR", "MOHON MAAF KAMI SEDANG LIBUR", "Silahkan berkunjung besok:<br>📅 Hari: Kamis Malam Jumat<br>📍 Lokasi: KarangSong<br>⏰ Jam: 15:00 - 22:00 WIB");
+            }
             else if ((hari !== 3 && jam < 15) || (hari === 6 && jam < 16) || (hari === 0 && jam < 6)) {
                 const dataHariIni = infoJadwal[hari === 0 && jam < 15 ? 0 : hari];
-                openModal("BELUM BUKA", "SABAR YA LUR, KAMI AKAN SEGERA BUKA", "📍 Lokasi: " + dataHariIni.lokasi + "<br>⏰ Jam: " + dataHariIni.jam + " WIB");
+                openModal("BELUM BUKA", "SABAR YA LUR, KAMI AKAN SEGERA BUKA", "📅 Hari: " + dataHariIni.nama + "<br>📍 Lokasi: " + dataHariIni.lokasi + "<br>⏰ Jam: " + dataHariIni.jam + " WIB");
             }
             else {
                 let bsk = (hari + 1) % 7;
@@ -344,5 +347,5 @@
         setInterval(updateStatus, 60000);
     </script>
 </body>
-  </html>
-          
+            </html>
+            
