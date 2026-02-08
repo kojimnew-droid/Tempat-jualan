@@ -126,8 +126,7 @@ Tahun berganti, dedikasi Mang Uji mulai membuahkan hasil. Pelanggan mulai berdat
 <br> *Hari Ini: Gerobak legendaris itu kini telah ditarik dengan motor, melaju lebih jauh, membawa rasa yang tetap konsisten sejak gigitan pertama di tahun 2005.</br>
 Dari ber puluh-puluh kilo adonan yang terbuang, kini menjadi ribuan butir yang dirindukan. Cimol Lezat Mang Uji bukan sekadar jajanan ia adalah bukti bahwa konsistensi dan doa tidak akan pernah mengkhianati hasil. terimakasih untuk dukungan kalian para pelanggan cimol lezat mang uji yang sudah selalu setia menemani. semoga cimol lezat mang uji dan kalian pelanggan cimol lezat mang uji selalu dilindungi dan dilancarkan rezekinya oleh allah swt
         </p>
-        </p>
-        </div>
+        </p></div>
     </section>
 
     <section class="menu-preview">
@@ -326,7 +325,13 @@ Dari ber puluh-puluh kilo adonan yang terbuang, kini menjadi ribuan butir yang d
             document.getElementById('luxuryModal').classList.add('active');
         }
 
-        function closeModal() { document.getElementById('luxuryModal').classList.remove('active'); }
+        function closeModal() { 
+            document.getElementById('luxuryModal').classList.remove('active');
+            if (activeId) {
+                const targetElement = document.getElementById(activeId);
+                if (targetElement) { targetElement.scrollIntoView({ behavior: 'smooth' }); }
+            }
+        }
 
         function cekLokasiOtomatis() {
             const now = new Date();
@@ -334,9 +339,8 @@ Dari ber puluh-puluh kilo adonan yang terbuang, kini menjadi ribuan butir yang d
             const jam = now.getHours();
 
             if (activeId) {
-                window.location.hash = activeId;
                 const data = infoJadwal[hari === 0 && jam >= 15 ? "0-malam" : hari];
-                openModal("BERJUALAN", "KAMI SEDANG BUKA HARI INI!", "Silahkan cek lokasi pada bagian <b>" + data.nama + "</b> untuk mendapatkan arah Maps.");
+                openModal("BERJUALAN", "KAMI SEDANG BUKA HARI INI!", "Silahkan klik OKE untuk melihat lokasi jualan bagian <b>" + data.nama + "</b>.");
             } 
             else if (hari === 3) {
                 openModal("SEDANG LIBUR", "MOHON MAAF KAMI SEDANG LIBUR", "Silahkan berkunjung besok:<br>📅 Hari: Kamis Malam Jumat<br>📍 Lokasi: KarangSong<br>⏰ Jam: 15:00 - 22:00 WIB");
@@ -357,5 +361,5 @@ Dari ber puluh-puluh kilo adonan yang terbuang, kini menjadi ribuan butir yang d
         setInterval(updateStatus, 60000);
     </script>
 </body>
-            </html>
-            
+    </html>
+    
