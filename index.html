@@ -15,7 +15,7 @@
 
         body { font-family: 'Poppins', sans-serif; margin: 0; padding: 0; background: var(--ivory); scroll-behavior: smooth; color: var(--dark); }
 
-        /* --- HERO --- */
+        /* --- HERO SECTION --- */
         .hero {
             height: 100vh;
             display: flex; flex-direction: column; justify-content: center; align-items: center;
@@ -26,13 +26,14 @@
         .hero h1 { font-family: 'Playfair Display', serif; font-size: 3rem; margin-bottom: 10px; color: var(--gold); letter-spacing: 2px; }
         .hero p { font-size: 1.1rem; margin-bottom: 30px; font-weight: 300; letter-spacing: 1px; }
 
-        .btn-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+        .btn-container { display: flex; flex-direction: column; align-items: center; gap: 15px; width: 100%; max-width: 350px; }
 
         .btn-gold {
-            background: transparent; color: var(--gold); padding: 15px 35px;
+            width: 100%;
+            background: transparent; color: var(--gold); padding: 15px 0;
             text-decoration: none; border: 2px solid var(--gold);
             font-weight: 600; transition: 0.4s ease; text-transform: uppercase;
-            font-size: 0.8rem; cursor: pointer;
+            font-size: 0.9rem; cursor: pointer; text-align: center;
         }
         .btn-gold:hover { background: var(--gold); color: var(--dark); }
         .btn-highlight { background: var(--gold); color: var(--dark); }
@@ -77,8 +78,8 @@
         
         <div class="btn-container">
             <a href="#history" class="btn-gold">STORY</a>
-            <a onclick="cekLokasiOtomatis()" class="btn-gold btn-highlight">CEK LOKASI HARI INI</a>
-            <a href="#senin" class="btn-gold">LOKASI JUALAN</a>
+            <a href="#senin" class="btn-gold">TEMPAT DAN HARI BUKA</a>
+            <a onclick="cekLokasiOtomatis()" class="btn-gold btn-highlight">CEK LOKASI JUALAN SAAT INI</a>
         </div>
     </div>
 
@@ -86,7 +87,9 @@
         <div style="max-width: 800px; margin: 0 auto;">
             <h2 style="font-family: 'Playfair Display', serif; font-size: 2.5rem;">Mahakarya Dari Sebuah Kegagalan</h2>
             <div style="width: 50px; height: 3px; background: var(--gold); margin: 20px auto;"></div>
-            <p style="line-height: 1.8; color: #555;">(Isi cerita Mang Uji yang sudah ada di index.html sebelumnya)</p>
+            <p style="line-height: 1.8; color: #555; text-align: justify;">
+                Di balik renyah dan gurihnya Cimol Lezat Mang Uji, tersimpan rahasia perjuangan Ahmad Fauji (Mang Uji) sejak 2005. Berawal dari gerobak kayu yang didorong manual, melewati masa sepeda, hingga kini ditarik motor, rasa legendaris ini tetap konsisten terjaga. Setiap kilogram adonan yang gagal di masa lalu menjadi guru terbaik untuk kesempurnaan cimol yang Mang Uji sajikan hari ini.
+            </p>
         </div>
     </section>
 
@@ -167,7 +170,7 @@
 
     <div id="minggu-pagi" class="day-section">
         <div class="day-card">
-            <img class="img-lapak" src="pminggu.png">
+            <img class="img-lapak" src="mingguan.jpg" alt="Kulcim">
             <div class="day-content">
                 <div id="status-minggu-pagi" class="status-badge badge-status">MEMUAT...</div>
                 <h2>MINGGU PAGI</h2>
@@ -182,7 +185,7 @@
 
     <div id="minggu-malam" class="day-section luxury-bg">
         <div class="day-card">
-            <img class="img-lapak" src="seninan.jpg">
+            <img class="img-lapak" src="cfn.png" alt="Sukadedel">
             <div class="day-content">
                 <div id="status-minggu-malam" class="status-badge badge-status">MEMUAT...</div>
                 <h2>MINGGU MALAM SENIN</h2>
@@ -252,14 +255,20 @@
 
             if (currentActiveDayId) {
                 window.location.hash = currentActiveDayId;
+                const dataHariIni = infoJadwal[hari === 0 && jam >= 15 ? "0-malam" : hari];
                 setTimeout(() => {
-                    alert("KAMI SEDANG BUKA HARI INI!\n\nSilakan klik tombol 'KLIK TOMBOL CARI INI' pada bagian " + infoJadwal[hari === 0 && jam >= 15 ? "0-malam" : hari].nama + " untuk mendapatkan arah Maps.");
+                    alert("KAMI SEDANG BUKA HARI INI!\n\nSilakan klik tombol 'KLIK TOMBOL CARI INI' pada bagian " + dataHariIni.nama + " untuk mendapatkan arah Maps.");
                 }, 500);
-            } else {
+            } 
+            else if ((hari !== 3 && jam < 15) || (hari === 6 && jam < 16) || (hari === 0 && jam < 6)) {
+                const dataHariIni = infoJadwal[hari === 0 && jam < 15 ? 0 : hari];
+                alert("KAMI BELUM BUKA.\n\nSabar ya lur, hari ini kami akan jualan di:\n📍 Lokasi: " + dataHariIni.lokasi + "\n⏰ Jam: " + dataHariIni.jam + " WIB\n\nDitunggu kedatangannya!");
+            }
+            else {
                 let besokIndex = (hari + 1) % 7;
                 if (besokIndex === 3) besokIndex = 4;
                 const besok = infoJadwal[besokIndex];
-                alert("MOHON MAAF KAMI SUDAH TUTUP / BELUM BUKA.\n\nSilakan berkunjung di jadwal selanjutnya:\n📅 Hari: " + besok.nama + "\n📍 Lokasi: " + besok.lokasi + "\n⏰ Jam: " + besok.jam + " WIB\n\nTerimakasih!");
+                alert("MOHON MAAF KAMI SUDAH TUTUP.\n\nSilahkan berkunjung di jadwal selanjutnya:\n📅 Hari: " + besok.nama + "\n📍 Lokasi: " + besok.lokasi + "\n⏰ Jam: " + besok.jam + " WIB\n\nTerimakasih!");
             }
         }
 
