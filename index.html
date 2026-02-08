@@ -36,7 +36,6 @@
         }
         .btn-gold:hover { background: rgba(212, 175, 55, 0.1); }
 
-        /* TOMBOL GOLD GLOSSY */
         .btn-luxury-gold {
             width: 100%; padding: 16px 0; text-decoration: none; text-transform: uppercase;
             font-weight: 700; font-size: 0.85rem; letter-spacing: 2px; color: #463b15;
@@ -46,20 +45,16 @@
         }
         .btn-luxury-gold:hover { background-position: right center; transform: translateY(-2px); }
 
-        /* --- STORY --- */
-        .story-section { padding: 80px 20px; text-align: center; background: white; }
-        .story-container { max-width: 800px; margin: 0 auto; }
-
-        /* --- MENU PREVIEW (GAMBAR) --- */
+        /* --- MENU --- */
         .menu-preview { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; padding: 50px 20px; background: var(--dark); }
         .menu-item { position: relative; width: 300px; height: 400px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
         .menu-item img { width: 100%; height: 100%; object-fit: cover; transition: 1.5s ease; }
         .menu-item:hover img { transform: scale(1.1); }
         .menu-label { position: absolute; bottom: 20px; left: 20px; color: white; z-index: 2; }
 
-        /* --- JADWAL STYLE --- */
-        .day-section { min-height: 100vh; padding: 80px 20px; display: flex; flex-direction: column; align-items: center; }
-        .day-card { background: white; width: 100%; max-width: 450px; overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.05); text-align: center; }
+        /* --- JADWAL --- */
+        .day-section { min-height: 100vh; padding: 80px 20px; display: flex; flex-direction: column; align-items: center; box-sizing: border-box; }
+        .day-card { background: white; width: 100%; max-width: 450px; overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.05); text-align: center; border: 1px solid #eee; }
         .img-lapak { width: 100%; height: 250px; object-fit: cover; }
         .day-content { padding: 40px; }
         .status-badge { display: inline-block; padding: 6px 16px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; margin-bottom: 15px; }
@@ -69,6 +64,12 @@
         .btn-wa { display: block; background: var(--gold); color: var(--dark); padding: 18px; text-decoration: none; font-weight: 600; }
         .luxury-bg { background: #111 !important; color: white !important; }
         .luxury-bg .day-card { background: #1a1a1a; border: 1px solid #333; }
+        .nav-next { margin-top: 30px; color: #aaa; text-decoration: none; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 2px; }
+        
+        .attention-box { margin-top: 25px; padding-top: 15px; border-top: 1px dashed #ddd; text-align: center; }
+        .attention-title { color: var(--danger); font-weight: bold; text-transform: uppercase; font-size: 0.9rem; display: block; margin-bottom: 5px; }
+        .attention-text { font-size: 0.85rem; color: #666; line-height: 1.4; margin: 0; }
+        .luxury-bg .attention-text { color: #bbb; }
     </style>
 </head>
 <body>
@@ -83,8 +84,8 @@
         </div>
     </div>
 
-    <section id="history" class="story-section">
-        <div class="story-container">
+    <section id="history" style="padding: 80px 20px; text-align: center; background: white;">
+        <div style="max-width: 800px; margin: 0 auto;">
             <h2 style="font-family: 'Playfair Display', serif; font-size: 2.5rem;">Mahakarya Dari Sebuah Kegagalan</h2>
             <div style="width: 50px; height: 3px; background: var(--gold); margin: 20px auto;"></div>
             <p style="line-height: 1.8; color: #555; text-align: justify;">Di balik renyah dan gurihnya Cimol Lezat Mang Uji, tersimpan rahasia perjuangan Ahmad Fauji (Mang Uji) sejak 2005. Berawal dari gerobak kayu hingga kini ditarik motor, rasa legendaris ini tetap konsisten terjaga.</p>
@@ -114,6 +115,7 @@
                 <a href="https://wa.me/6287843244480" class="btn-wa">WHATSAPP</a>
             </div>
         </div>
+        <a href="#selasa" class="nav-next">Hari berikutnya ↓</a>
     </div>
 
     <div id="selasa" class="day-section luxury-bg">
@@ -128,6 +130,7 @@
                 <a href="https://wa.me/6287843244480" class="btn-wa">WHATSAPP</a>
             </div>
         </div>
+        <a href="#rabu" class="nav-next">Hari berikutnya ↓</a>
     </div>
 
     <div id="rabu" class="day-section">
@@ -136,8 +139,10 @@
             <div class="day-content">
                 <h2>RABU MALAM KAMIS</h2>
                 <h3 style="color:red;">CLOSED (Day Off)</h3>
+                <p>Mohon maaf, hari ini libur.</p>
             </div>
         </div>
+        <a href="#kamis" class="nav-next">Hari berikutnya ↓</a>
     </div>
 
     <div id="kamis" class="day-section luxury-bg">
@@ -152,6 +157,7 @@
                 <a href="https://wa.me/6287843244480" class="btn-wa">WHATSAPP</a>
             </div>
         </div>
+        <a href="#jumat" class="nav-next">Hari berikutnya ↓</a>
     </div>
 
     <div id="jumat" class="day-section">
@@ -166,6 +172,7 @@
                 <a href="https://wa.me/6287843244480" class="btn-wa">WHATSAPP</a>
             </div>
         </div>
+        <a href="#sabtu" class="nav-next">Hari berikutnya ↓</a>
     </div>
 
     <div id="sabtu" class="day-section luxury-bg">
@@ -180,6 +187,7 @@
                 <a href="https://wa.me/6287843244480" class="btn-wa">WHATSAPP</a>
             </div>
         </div>
+        <a href="#minggu-pagi" class="nav-next">Hari berikutnya ↓</a>
     </div>
 
     <div id="minggu-pagi" class="day-section">
@@ -194,6 +202,7 @@
                 <a href="https://wa.me/6287843244480" class="btn-wa">WHATSAPP</a>
             </div>
         </div>
+        <a href="#minggu-malam" class="nav-next">Hari berikutnya ↓</a>
     </div>
 
     <div id="minggu-malam" class="day-section luxury-bg">
@@ -206,11 +215,14 @@
                 <span style="display:block; margin-bottom:15px;">15:00 - 22:00 WIB</span>
                 <a href="https://goo.gl/maps/t7HCoRk2q3jG4PjR8" class="btn-maps" target="_blank">CEK LOKASI</a>
                 <a href="https://wa.me/6287843244480" class="btn-wa">WHATSAPP</a>
-                <div style="margin-top:20px; border-top:1px dashed #777; padding-top:10px;">
-                    <p style="font-size:0.8rem;">Silahkan chat WA dulu untuk booking. Terimakasih.</p>
+                
+                <div class="attention-box">
+                    <span class="attention-title">Perhatian!</span>
+                    <p class="attention-text">Silahkan ngobrol di WhatsApp dulu untuk memastikan sedang jualan atau tidak dan juga bisa booking dahulu. Terimakasih</p>
                 </div>
             </div>
         </div>
+        <a href="#home" class="nav-next">Ke Atas ↑</a>
     </div>
 
     <script>
@@ -277,5 +289,5 @@
         setInterval(updateStatus, 60000);
     </script>
 </body>
-                </html>
-    
+                    </html>
+                    
