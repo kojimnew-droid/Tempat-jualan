@@ -15,119 +15,95 @@
 
         body { font-family: 'Poppins', sans-serif; margin: 0; padding: 0; background: var(--ivory); scroll-behavior: smooth; color: var(--dark); }
 
-        /* --- LUXURY HERO SECTION --- */
+        /* --- HERO --- */
         .hero {
             height: 100vh;
             display: flex; flex-direction: column; justify-content: center; align-items: center;
-            background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), url('awal.png'); 
+            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('awal.png'); 
             background-size: cover; background-position: center;
             color: white; text-align: center; padding: 20px;
         }
-        
-        .hero-frame {
-            border: 1px solid rgba(212, 175, 55, 0.3);
-            padding: 50px 30px;
-            max-width: 400px;
-            width: 90%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
+        .hero h1 { font-family: 'Playfair Display', serif; font-size: 3rem; margin-bottom: 10px; color: var(--gold); letter-spacing: 2px; }
+        .hero p { font-size: 1.1rem; margin-bottom: 40px; font-weight: 300; letter-spacing: 1px; }
 
-        .hero h1 { 
-            font-family: 'Playfair Display', serif; 
-            font-size: 2.5rem; 
-            margin: 0; 
-            color: var(--gold); 
-            letter-spacing: 4px;
-            line-height: 1.2;
-        }
-        
-        .gold-divider { width: 30px; height: 1px; background: var(--gold); margin: 25px auto; }
-        
-        .hero p { 
-            font-size: 0.75rem; 
-            margin-bottom: 40px; 
-            font-weight: 300; 
-            letter-spacing: 3px; 
-            opacity: 0.8;
-            text-transform: uppercase;
-        }
+        .btn-container { display: flex; flex-direction: column; align-items: center; gap: 15px; width: 100%; max-width: 350px; }
 
-        /* --- LUXURY BUTTONS --- */
-        .btn-container { display: flex; flex-direction: column; gap: 15px; width: 100%; }
-
+        /* Tombol Story & Tempat (Minimalis) */
         .btn-gold {
             width: 100%;
-            background: transparent; color: var(--gold); padding: 12px 0;
-            text-decoration: none; border: 1px solid rgba(212, 175, 55, 0.5);
-            font-weight: 300; transition: all 0.5s ease; text-transform: uppercase;
-            font-size: 0.7rem; cursor: pointer; text-align: center;
-            letter-spacing: 2px;
+            background: transparent; color: var(--gold); padding: 15px 0;
+            text-decoration: none; border: 1px solid var(--gold);
+            font-weight: 600; transition: 0.4s ease; text-transform: uppercase;
+            font-size: 0.8rem; cursor: pointer; text-align: center; letter-spacing: 2px;
         }
-        .btn-gold:hover { background: rgba(212, 175, 55, 0.05); border-color: var(--gold); letter-spacing: 4px; }
-        
-        .btn-highlight { background: var(--gold) !important; color: var(--dark) !important; border: none; font-weight: 600; }
-        .btn-highlight:hover { background: #b8962e !important; letter-spacing: 3px; }
+        .btn-gold:hover { background: rgba(212, 175, 55, 0.1); }
 
-        /* --- STATUS BADGE --- */
-        .status-badge {
-            display: inline-block; padding: 6px 16px; border-radius: 20px;
-            font-size: 0.8rem; font-weight: 600; margin-bottom: 15px;
-            text-transform: uppercase; letter-spacing: 1px;
+        /* TOMBOL GOLD GLOSSY (CEK LOKASI) */
+        .btn-luxury-gold {
+            width: 100%;
+            padding: 16px 0;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-weight: 700;
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            color: #463b15;
+            cursor: pointer;
+            text-align: center;
+            border-radius: 4px;
+            border: none;
+            background: linear-gradient(135deg, #fdfcfb 0%, #e2d1c3 0%, #d4af37 25%, #f9f295 50%, #d4af37 75%, #b8860b 100%);
+            background-size: 200% auto;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3), inset 0 1px 1px rgba(255,255,255,0.5);
+            transition: 0.5s;
+            display: block;
         }
+
+        .btn-luxury-gold:hover {
+            background-position: right center;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4);
+            color: #000;
+        }
+
+        /* --- DAY SECTIONS & STATUS --- */
+        .status-badge { display: inline-block; padding: 6px 16px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; margin-bottom: 15px; text-transform: uppercase; }
         .online { background: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
         .offline { background: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
+        .jam-operasional { display: block; font-size: 0.95rem; color: #666; margin-bottom: 25px; }
 
-        .jam-operasional { display: block; font-size: 0.9rem; color: #666; margin-bottom: 15px; letter-spacing: 1px; }
-
-        /* --- DAY SECTIONS --- */
         .day-section { min-height: 100vh; padding: 80px 20px; display: flex; flex-direction: column; align-items: center; box-sizing: border-box; }
-        .day-card { background: white; width: 100%; max-width: 450px; overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.03); text-align: center; border: 1px solid #eee; }
+        .day-card { background: white; width: 100%; max-width: 450px; overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.05); text-align: center; }
         .img-lapak { width: 100%; height: 250px; object-fit: cover; }
         .day-content { padding: 40px; }
-        .day-content h2 { font-family: 'Playfair Display', serif; font-size: 1.6rem; margin: 0; letter-spacing: 1px; }
-        .day-content h3 { color: var(--gold); margin: 10px 0 5px; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 2px; }
+        .day-content h2 { font-family: 'Playfair Display', serif; font-size: 1.8rem; margin: 0; }
+        .day-content h3 { color: var(--gold); margin: 10px 0 5px; font-size: 1rem; text-transform: uppercase; }
         
-        .btn-maps { display: block; background: var(--dark); color: white; padding: 18px; text-decoration: none; font-weight: 600; margin-bottom: 10px; font-size: 0.85rem; letter-spacing: 1px; }
-        .btn-wa { display: block; background: var(--gold); color: var(--dark); padding: 18px; text-decoration: none; font-weight: 600; font-size: 0.85rem; letter-spacing: 1px; }
+        .btn-maps { display: block; background: var(--dark); color: white; padding: 18px; text-decoration: none; font-weight: 600; margin-bottom: 15px; }
+        .btn-wa { display: block; background: var(--gold); color: var(--dark); padding: 18px; text-decoration: none; font-weight: 600; }
 
         .attention-box { margin-top: 25px; padding-top: 15px; border-top: 1px dashed #ddd; text-align: center; }
-        .attention-title { color: var(--danger); font-weight: bold; text-transform: uppercase; font-size: 0.85rem; display: block; margin-bottom: 5px; }
-        .attention-text { font-size: 0.8rem; color: #666; line-height: 1.5; margin: 0; }
+        .attention-title { color: var(--danger); font-weight: bold; text-transform: uppercase; font-size: 0.9rem; display: block; margin-bottom: 5px; }
+        .attention-text { font-size: 0.85rem; color: #666; line-height: 1.4; margin: 0; }
 
         .luxury-bg { background: #111 !important; color: white !important; }
-        .luxury-bg .day-card { background: #1a1a1a; border: 1px solid #222; }
+        .luxury-bg .day-card { background: #1a1a1a; border: 1px solid #333; }
         .luxury-bg h2 { color: var(--gold) !important; }
-        .luxury-bg .jam-operasional { color: #888; }
-        .nav-next { margin-top: 30px; color: #aaa; text-decoration: none; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; }
+        .nav-next { margin-top: 30px; color: #aaa; text-decoration: none; font-size: 0.9rem; text-transform: uppercase; }
     </style>
 </head>
 <body>
 
     <div id="home" class="hero">
-        <div class="hero-frame">
-            <h1>CIMOL LEZAT <br>MANG UJI</h1>
-            <div class="gold-divider"></div>
-            <p>ESTABLISHED 2005 • INDRAMAYU</p>
-            
-            <div class="btn-container">
-                <a href="#history" class="btn-gold">OUR STORY</a>
-                <a href="#senin" class="btn-gold">TEMPAT & HARI BUKA</a>
-                <a onclick="cekLokasiOtomatis()" class="btn-gold btn-highlight">CEK LOKASI SEKARANG</a>
-            </div>
+        <h1>CIMOL LEZAT <br>MANG UJI</h1>
+        <p>CIMOL LEGENDNYA INDRAMAYU YANG SUDAH ADA SEJAK TAHUN 2005</p>
+        
+        <div class="btn-container">
+            <a href="#history" class="btn-gold">OUR STORY</a>
+            <a href="#senin" class="btn-gold">TEMPAT & HARI BUKA</a>
+            <button onclick="cekLokasiOtomatis()" class="btn-luxury-gold">CEK LOKASI JUALAN HARI INI</button>
         </div>
     </div>
-
-    <section id="history" style="padding: 100px 20px; text-align: center; background: white;">
-        <div style="max-width: 700px; margin: 0 auto;">
-            <h2 style="font-family: 'Playfair Display', serif; font-size: 2.2rem; letter-spacing: 2px;">MAHAKARYA RASA</h2>
-            <div class="gold-divider"></div>
-            <p style="line-height: 2; color: #666; font-size: 0.95rem; text-align: justify; font-weight: 300;">
-                Berawal dari mimpi sederhana tahun 2005, Ahmad Fauji (Mang Uji) mendedikasikan hidupnya untuk menyempurnakan rasa cimol yang otentik. Melewati ribuan adonan yang gagal hingga mendorong gerobak kayu di bawah terik matahari Indramayu, kini Cimol Lezat Mang Uji hadir sebagai bukti bahwa kualitas dan ketulusan rasa tidak akan pernah lekang oleh waktu.
-            </p>
-        </div>
-    </section>
 
     <div id="senin" class="day-section">
         <div class="day-card">
@@ -136,87 +112,12 @@
                 <div id="status-senin" class="status-badge badge-status">MEMUAT STATUS...</div>
                 <h2>SENIN MALAM SELASA</h2>
                 <h3>Lokasi: Paoman</h3>
-                <span class="jam-operasional">15:00 - 22:00 WIB</span>
+                <span class="jam-operasional">Buka: 15:00 - 22:00 WIB</span>
                 <a href="https://goo.gl/maps/Xmn8CXCkfUKDDEsm6" class="btn-maps" target="_blank">CEK LOKASI</a>
-                <a href="https://wa.me/6287843244480" class="btn-wa">RESERVE VIA WHATSAPP</a>
+                <a href="https://wa.me/6287843244480" class="btn-wa">NGOBROL DI WHATSAPP</a>
             </div>
         </div>
-        <a href="#selasa" class="nav-next">Next Destination ↓</a>
-    </div>
-
-    <div id="selasa" class="day-section luxury-bg">
-        <div class="day-card">
-            <img class="img-lapak" src="cfn.png">
-            <div class="day-content">
-                <div id="status-selasa" class="status-badge badge-status">MEMUAT...</div>
-                <h2>SELASA MALAM RABU</h2>
-                <h3>Lokasi: Bunderan Kijang</h3>
-                <span class="jam-operasional">15:00 - 22:00 WIB</span>
-                <a href="https://goo.gl/maps/DLG3zC87gLoD5uug8" class="btn-maps" target="_blank">CEK LOKASI</a>
-                <a href="https://wa.me/6287843244480" class="btn-wa">RESERVE VIA WHATSAPP</a>
-            </div>
-        </div>
-        <a href="#kamis" class="nav-next">Next Destination ↓</a>
-    </div>
-
-    <div id="kamis" class="day-section luxury-bg">
-        <div class="day-card">
-            <img class="img-lapak" src="cfn.png">
-            <div class="day-content">
-                <div id="status-kamis" class="status-badge badge-status">MEMUAT...</div>
-                <h2>KAMIS MALAM JUM'AT</h2>
-                <h3>Lokasi: KarangSong</h3>
-                <span class="jam-operasional">15:00 - 22:00 WIB</span>
-                <a href="https://goo.gl/maps/iT3jTfowX7wuzvjU7" class="btn-maps" target="_blank">CEK LOKASI</a>
-                <a href="https://wa.me/6287843244480" class="btn-wa">RESERVE VIA WHATSAPP</a>
-            </div>
-        </div>
-        <a href="#jumat" class="nav-next">Next Destination ↓</a>
-    </div>
-
-    <div id="jumat" class="day-section">
-        <div class="day-card">
-            <img class="img-lapak" src="sabtuan.png">
-            <div class="day-content">
-                <div id="status-jumat" class="status-badge badge-status">MEMUAT...</div>
-                <h2>JUM'AT MALAM SABTU</h2>
-                <h3>Lokasi: Sindang</h3>
-                <span class="jam-operasional">15:00 - 22:00 WIB</span>
-                <a href="https://goo.gl/maps/AQJiFZMubnhETUsV9" class="btn-maps" target="_blank">CEK LOKASI</a>
-                <a href="https://wa.me/6287843244480" class="btn-wa">RESERVE VIA WHATSAPP</a>
-            </div>
-        </div>
-        <a href="#sabtu" class="nav-next">Next Destination ↓</a>
-    </div>
-
-    <div id="sabtu" class="day-section luxury-bg">
-        <div class="day-card">
-            <img class="img-lapak" src="cfn.png">
-            <div class="day-content">
-                <div id="status-sabtu" class="status-badge badge-status">MEMUAT...</div>
-                <h2>SABTU MALAM MINGGU</h2>
-                <h3>Lokasi: CFN Alun-Alun</h3>
-                <span class="jam-operasional">16:00 - 23:00 WIB</span>
-                <a href="https://goo.gl/maps/Q3PcyEtNBkoMuSPq9" class="btn-maps" target="_blank">CEK LOKASI</a>
-                <a href="https://wa.me/6287843244480" class="btn-wa">RESERVE VIA WHATSAPP</a>
-            </div>
-        </div>
-        <a href="#minggu-pagi" class="nav-next">Next Destination ↓</a>
-    </div>
-
-    <div id="minggu-pagi" class="day-section">
-        <div class="day-card">
-            <img class="img-lapak" src="pminggu.png">
-            <div class="day-content">
-                <div id="status-minggu-pagi" class="status-badge badge-status">MEMUAT...</div>
-                <h2>MINGGU PAGI</h2>
-                <h3>Lokasi: Kulcim Alun-alun</h3>
-                <span class="jam-operasional">06:00 - 12:00 WIB</span>
-                <a href="https://goo.gl/maps/i6bWhbJSJyDm9ZdP7" class="btn-maps" target="_blank">CEK LOKASI</a>
-                <a href="https://wa.me/6287843244480" class="btn-wa">RESERVE VIA WHATSAPP</a>
-            </div>
-        </div>
-        <a href="#minggu-malam" class="nav-next">Next Destination ↓</a>
+        <a href="#selasa" class="nav-next">Next ↓</a>
     </div>
 
     <div id="minggu-malam" class="day-section luxury-bg">
@@ -226,17 +127,16 @@
                 <div id="status-minggu-malam" class="status-badge badge-status">MEMUAT...</div>
                 <h2>MINGGU MALAM SENIN</h2>
                 <h3>Lokasi: Sukadedel</h3>
-                <span class="jam-operasional">15:00 - 22:00 WIB</span>
+                <span class="jam-operasional">Buka: 15:00 - 22:00 WIB</span>
                 <a href="https://goo.gl/maps/t7HCoRk2q3jG4PjR8" class="btn-maps" target="_blank">CEK LOKASI</a>
-                <a href="https://wa.me/6287843244480" class="btn-wa">RESERVE VIA WHATSAPP</a>
-                
+                <a href="https://wa.me/6287843244480" class="btn-wa">NGOBROL DI WHATSAPP</a>
                 <div class="attention-box">
                     <span class="attention-title">Perhatian!</span>
-                    <p class="attention-text">Silahkan chat WhatsApp terlebih dahulu untuk konfirmasi ketersediaan stok atau melakukan booking. Terimakasih.</p>
+                    <p class="attention-text">Silahkan ngobrol di WhatsApp dulu untuk memastikan sedang jualan atau tidak dan juga bisa booking dahulu. Terimakasih</p>
                 </div>
             </div>
         </div>
-        <a href="#home" class="nav-next">Back to Top ↑</a>
+        <a href="#home" class="nav-next">Ke Atas ↑</a>
     </div>
 
     <script>
@@ -293,18 +193,18 @@
                 window.location.hash = currentActiveDayId;
                 const dataHariIni = infoJadwal[hari === 0 && jam >= 15 ? "0-malam" : hari];
                 setTimeout(() => {
-                    alert("KAMI SEDANG BUKA HARI INI!\n\nSilakan lihat bagian " + dataHariIni.nama + " dan klik tombol 'CEK LOKASI' untuk petunjuk arah.");
+                    alert("KAMI SEDANG BUKA HARI INI!\n\nSilakan cek lokasi pada bagian " + dataHariIni.nama + " untuk mendapatkan arah Maps.");
                 }, 500);
             } 
             else if ((hari !== 3 && jam < 15) || (hari === 6 && jam < 16) || (hari === 0 && jam < 6)) {
                 const dataHariIni = infoJadwal[hari === 0 && jam < 15 ? 0 : hari];
-                alert("KAMI BELUM BUKA.\n\nHari ini kami akan jualan di:\n📍 " + dataHariIni.lokasi + "\n⏰ Jam: " + dataHariIni.jam + " WIB\n\nDitunggu ya lur!");
+                alert("KAMI BELUM BUKA.\n\nHari ini kami jualan di:\n📍 Lokasi: " + dataHariIni.lokasi + "\n⏰ Jam: " + dataHariIni.jam + " WIB");
             }
             else {
                 let besokIndex = (hari + 1) % 7;
                 if (besokIndex === 3) besokIndex = 4;
                 const besok = infoJadwal[besokIndex];
-                alert("MOHON MAAF KAMI SUDAH TUTUP.\n\nSilahkan berkunjung besok:\n📅 Hari: " + besok.nama + "\n📍 Lokasi: " + besok.lokasi + "\n⏰ Jam: " + besok.jam + " WIB\n\nTerimakasih!");
+                alert("MOHON MAAF KAMI SUDAH TUTUP.\n\nSilahkan berkunjung besok:\n📅 Hari: " + besok.nama + "\n📍 Lokasi: " + besok.lokasi + "\n⏰ Jam: " + besok.jam + " WIB");
             }
         }
 
@@ -312,5 +212,4 @@
         setInterval(updateStatus, 60000);
     </script>
 </body>
-                                                                </html>
-                                                                       
+</html>
