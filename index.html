@@ -24,15 +24,18 @@
             color: white; text-align: center; padding: 20px;
         }
         .hero h1 { font-family: 'Playfair Display', serif; font-size: 3rem; margin-bottom: 10px; color: var(--gold); letter-spacing: 2px; }
-        .hero p { font-size: 1.1rem; margin-bottom: 40px; font-weight: 300; letter-spacing: 1px; }
+        .hero p { font-size: 1.1rem; margin-bottom: 30px; font-weight: 300; letter-spacing: 1px; }
+
+        .btn-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
 
         .btn-gold {
-            background: transparent; color: var(--gold); padding: 15px 45px;
+            background: transparent; color: var(--gold); padding: 15px 35px;
             text-decoration: none; border: 2px solid var(--gold);
             font-weight: 600; transition: 0.4s ease; text-transform: uppercase;
-            margin: 5px; display: inline-block; cursor: pointer;
+            font-size: 0.8rem; cursor: pointer;
         }
         .btn-gold:hover { background: var(--gold); color: var(--dark); }
+        .btn-highlight { background: var(--gold); color: var(--dark); }
 
         /* --- STATUS BADGE --- */
         .status-badge {
@@ -44,7 +47,6 @@
         .offline { background: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
 
         .jam-operasional { display: block; font-size: 0.95rem; color: #666; margin-bottom: 15px; }
-        .luxury-bg .jam-operasional { color: #bbb; }
 
         /* --- DAY SECTIONS --- */
         .day-section { min-height: 100vh; padding: 80px 20px; display: flex; flex-direction: column; align-items: center; box-sizing: border-box; }
@@ -61,10 +63,10 @@
         .attention-title { color: var(--danger); font-weight: bold; text-transform: uppercase; font-size: 0.9rem; display: block; margin-bottom: 5px; }
         .attention-text { font-size: 0.85rem; color: #666; line-height: 1.4; margin: 0; }
 
-        .nav-next { margin-top: 30px; color: #aaa; text-decoration: none; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 2px; }
         .luxury-bg { background: #111 !important; color: white !important; }
         .luxury-bg .day-card { background: #1a1a1a; border: 1px solid #333; }
         .luxury-bg h2 { color: var(--gold) !important; }
+        .nav-next { margin-top: 30px; color: #aaa; text-decoration: none; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 2px; }
     </style>
 </head>
 <body>
@@ -72,15 +74,27 @@
     <div id="home" class="hero">
         <h1>CIMOL LEZAT <br>MANG UJI<br></h1>
         <p>CIMOL LEGENDNYA INDRAMAYU YANG SUDAH ADA SEJAK TAHUN 2005</p>
-        <a onclick="cekLokasiOtomatis()" class="btn-gold">CEK LOKASI JUALAN HARI INI</a>
-        <a href="#senin" style="font-size: 0.8rem; color: white; margin-top: 15px; text-decoration: none; opacity: 0.5;">Atau lihat jadwal manual</a>
+        
+        <div class="btn-container">
+            <a href="#history" class="btn-gold">STORY</a>
+            <a onclick="cekLokasiOtomatis()" class="btn-gold btn-highlight">CEK LOKASI HARI INI</a>
+            <a href="#senin" class="btn-gold">LOKASI JUALAN</a>
+        </div>
     </div>
+
+    <section id="history" style="padding: 80px 20px; text-align: center; background: white;">
+        <div style="max-width: 800px; margin: 0 auto;">
+            <h2 style="font-family: 'Playfair Display', serif; font-size: 2.5rem;">Mahakarya Dari Sebuah Kegagalan</h2>
+            <div style="width: 50px; height: 3px; background: var(--gold); margin: 20px auto;"></div>
+            <p style="line-height: 1.8; color: #555;">(Isi cerita Mang Uji yang sudah ada di index.html sebelumnya)</p>
+        </div>
+    </section>
 
     <div id="senin" class="day-section">
         <div class="day-card">
             <img class="img-lapak" src="cfn.png">
             <div class="day-content">
-                <div id="status-senin" class="status-badge badge-status">MEMUAT STATUS...</div>
+                <div id="status-senin" class="status-badge badge-status">MEMUAT...</div>
                 <h2>SENIN MALAM SELASA</h2>
                 <h3>Lokasi: Paoman</h3>
                 <span class="jam-operasional">Buka: 15:00 - 22:00 WIB</span>
@@ -95,7 +109,7 @@
         <div class="day-card">
             <img class="img-lapak" src="cfn.png">
             <div class="day-content">
-                <div id="status-selasa" class="status-badge badge-status">MEMUAT STATUS...</div>
+                <div id="status-selasa" class="status-badge badge-status">MEMUAT...</div>
                 <h2>SELASA MALAM RABU</h2>
                 <h3>Lokasi: Bunderan Kijang</h3>
                 <span class="jam-operasional">Buka: 15:00 - 22:00 WIB</span>
@@ -110,7 +124,7 @@
         <div class="day-card">
             <img class="img-lapak" src="cfn.png">
             <div class="day-content">
-                <div id="status-kamis" class="status-badge badge-status">MEMUAT STATUS...</div>
+                <div id="status-kamis" class="status-badge badge-status">MEMUAT...</div>
                 <h2>KAMIS MALAM JUM'AT</h2>
                 <h3>Lokasi: KarangSong</h3>
                 <span class="jam-operasional">Buka: 15:00 - 22:00 WIB</span>
@@ -125,7 +139,7 @@
         <div class="day-card">
             <img class="img-lapak" src="sabtuan.png">
             <div class="day-content">
-                <div id="status-jumat" class="status-badge badge-status">MEMUAT STATUS...</div>
+                <div id="status-jumat" class="status-badge badge-status">MEMUAT...</div>
                 <h2>JUM'AT MALAM SABTU</h2>
                 <h3>Lokasi: Sindang</h3>
                 <span class="jam-operasional">Buka: 15:00 - 22:00 WIB</span>
@@ -140,7 +154,7 @@
         <div class="day-card">
             <img class="img-lapak" src="cfn.png">
             <div class="day-content">
-                <div id="status-sabtu" class="status-badge badge-status">MEMUAT STATUS...</div>
+                <div id="status-sabtu" class="status-badge badge-status">MEMUAT...</div>
                 <h2>SABTU MALAM MINGGU</h2>
                 <h3>Lokasi: CFN Alun-Alun</h3>
                 <span class="jam-operasional">Buka: 16:00 - 23:00 WIB</span>
@@ -155,9 +169,9 @@
         <div class="day-card">
             <img class="img-lapak" src="pminggu.png">
             <div class="day-content">
-                <div id="status-minggu-pagi" class="status-badge badge-status">MEMUAT STATUS...</div>
+                <div id="status-minggu-pagi" class="status-badge badge-status">MEMUAT...</div>
                 <h2>MINGGU PAGI</h2>
-                <h3>Lokasi: Kulcim Alun-alun</h3>
+                <h3>Lokasi: Area Kulcim Alun-alun</h3>
                 <span class="jam-operasional">Buka: 06:00 - 12:00 WIB</span>
                 <a href="https://goo.gl/maps/i6bWhbJSJyDm9ZdP7" class="btn-maps" target="_blank">KLIK TOMBOL CARI INI</a>
                 <a href="https://wa.me/6287843244480" class="btn-wa">NGOBROL DI WHATSAPP</a>
@@ -170,7 +184,7 @@
         <div class="day-card">
             <img class="img-lapak" src="seninan.jpg">
             <div class="day-content">
-                <div id="status-minggu-malam" class="status-badge badge-status">MEMUAT STATUS...</div>
+                <div id="status-minggu-malam" class="status-badge badge-status">MEMUAT...</div>
                 <h2>MINGGU MALAM SENIN</h2>
                 <h3>Lokasi: Sukadedel</h3>
                 <span class="jam-operasional">Buka: 15:00 - 22:00 WIB</span>
@@ -187,15 +201,15 @@
     </div>
 
     <script>
-        // Data Jadwal untuk Pop-up saat tutup
-        const jadwalBesok = {
-            1: { hari: "Selasa Malam Rabu", lokasi: "Bunderan Kijang", jam: "15:00 - 22:00" },
-            2: { hari: "Kamis Malam Jumat", lokasi: "KarangSong", jam: "15:00 - 22:00" },
-            3: { hari: "Kamis Malam Jumat", lokasi: "KarangSong", jam: "15:00 - 22:00" }, // Rabu libur, arahkan ke kamis
-            4: { hari: "Jumat Malam Sabtu", lokasi: "Sindang", jam: "15:00 - 22:00" },
-            5: { hari: "Sabtu Malam Minggu", lokasi: "CFN Alun-Alun", jam: "16:00 - 23:00" },
-            6: { hari: "Minggu Pagi", lokasi: "Kulcim Alun-Alun", jam: "06:00 - 12:00" },
-            0: { hari: "Senin Malam Selasa", lokasi: "Paoman", jam: "15:00 - 22:00" }
+        const infoJadwal = {
+            1: { id: "senin", nama: "Senin Malam Selasa", lokasi: "Paoman", jam: "15:00 - 22:00" },
+            2: { id: "selasa", nama: "Selasa Malam Rabu", lokasi: "Bunderan Kijang", jam: "15:00 - 22:00" },
+            3: { id: "rabu", nama: "Rabu Malam Kamis (LIBUR)", lokasi: "-", jam: "-" },
+            4: { id: "kamis", nama: "Kamis Malam Jumat", lokasi: "KarangSong", jam: "15:00 - 22:00" },
+            5: { id: "jumat", nama: "Jumat Malam Sabtu", lokasi: "Sindang", jam: "15:00 - 22:00" },
+            6: { id: "sabtu", nama: "Sabtu Malam Minggu", lokasi: "CFN Alun-Alun", jam: "16:00 - 23:00" },
+            0: { id: "minggu-pagi", nama: "Minggu Pagi", lokasi: "Kulcim Alun-Alun", jam: "06:00 - 12:00" },
+            "0-malam": { id: "minggu-malam", nama: "Minggu Malam Senin", lokasi: "Sukadedel", jam: "15:00 - 22:00" }
         };
 
         let currentActiveDayId = null;
@@ -213,42 +227,39 @@
 
             currentActiveDayId = null;
 
-            if (hari === 0) { // Minggu
-                if (waktuDesimal >= 6 && waktuDesimal < 12) { currentActiveDayId = "senin"; /* ID Section Minggu Pagi */ updateUI("status-minggu-pagi", "minggu-pagi"); }
-                else if (waktuDesimal >= 15 && waktuDesimal < 22) { currentActiveDayId = "minggu-malam"; updateUI("status-minggu-malam", "minggu-malam"); }
-            } else if (hari === 6) { // Sabtu
-                if (waktuDesimal >= 16 && waktuDesimal < 23) { currentActiveDayId = "sabtu"; updateUI("status-sabtu", "sabtu"); }
-            } else if ([1, 2, 4, 5].includes(hari)) { // Senin, Selasa, Kamis, Jumat
+            if (hari === 0) {
+                if (waktuDesimal >= 6 && waktuDesimal < 12) { currentActiveDayId = "minggu-pagi"; }
+                else if (waktuDesimal >= 15 && waktuDesimal < 22) { currentActiveDayId = "minggu-malam"; }
+            } else if (hari === 6) {
+                if (waktuDesimal >= 16 && waktuDesimal < 23) { currentActiveDayId = "sabtu"; }
+            } else if ([1, 2, 4, 5].includes(hari)) {
                 if (waktuDesimal >= 15 && waktuDesimal < 22) {
                     const mapping = { 1: "senin", 2: "selasa", 4: "kamis", 5: "jumat" };
                     currentActiveDayId = mapping[hari];
-                    updateUI("status-" + mapping[hari], mapping[hari]);
                 }
             }
-        }
 
-        function updateUI(badgeId, sectionId) {
-            const el = document.getElementById(badgeId);
-            if (el) {
-                el.innerText = "● SEDANG BERJUALAN"; 
-                el.className = "status-badge badge-status online";
+            if (currentActiveDayId) {
+                const el = document.getElementById("status-" + currentActiveDayId);
+                if (el) { el.innerText = "● SEDANG BERJUALAN"; el.className = "status-badge online"; }
             }
         }
 
         function cekLokasiOtomatis() {
             const sekarang = new Date();
             const hari = sekarang.getDay();
+            const jam = sekarang.getHours();
 
             if (currentActiveDayId) {
-                // JIKA SEDANG BUKA: Scroll ke hari itu + Pop up instruksi
                 window.location.hash = currentActiveDayId;
                 setTimeout(() => {
-                    alert("KAMI SEDANG BUKA!\n\nKlik tombol 'KLIK TOMBOL CARI INI' untuk mencari lokasi jualan yang sedang buka di hari ini.");
+                    alert("KAMI SEDANG BUKA HARI INI!\n\nSilakan klik tombol 'KLIK TOMBOL CARI INI' pada bagian " + infoJadwal[hari === 0 && jam >= 15 ? "0-malam" : hari].nama + " untuk mendapatkan arah Maps.");
                 }, 500);
             } else {
-                // JIKA TUTUP: Info hari selanjutnya
-                const besok = jadwalBesok[hari];
-                alert("MOHON MAAF KAMI SUDAH TUTUP / BELUM BUKA.\n\nSilahkan berkunjung di jadwal selanjutnya:\n📅 Hari: " + besok.hari + "\n📍 Lokasi: " + besok.lokasi + "\n⏰ Jam: " + besok.jam + " WIB\n\nTerimakasih!");
+                let besokIndex = (hari + 1) % 7;
+                if (besokIndex === 3) besokIndex = 4;
+                const besok = infoJadwal[besokIndex];
+                alert("MOHON MAAF KAMI SUDAH TUTUP / BELUM BUKA.\n\nSilakan berkunjung di jadwal selanjutnya:\n📅 Hari: " + besok.nama + "\n📍 Lokasi: " + besok.lokasi + "\n⏰ Jam: " + besok.jam + " WIB\n\nTerimakasih!");
             }
         }
 
@@ -256,5 +267,5 @@
         setInterval(updateStatus, 60000);
     </script>
 </body>
-  </html>
-  
+    </html>
+    
