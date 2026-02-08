@@ -28,7 +28,6 @@
 
         .btn-container { display: flex; flex-direction: column; align-items: center; gap: 15px; width: 100%; max-width: 350px; }
 
-        /* Tombol Story & Tempat (Minimalis) */
         .btn-gold {
             width: 100%;
             background: transparent; color: var(--gold); padding: 15px 0;
@@ -38,7 +37,7 @@
         }
         .btn-gold:hover { background: rgba(212, 175, 55, 0.1); }
 
-        /* TOMBOL GOLD GLOSSY (CEK LOKASI) */
+        /* TOMBOL GOLD GLOSSY */
         .btn-luxury-gold {
             width: 100%;
             padding: 16px 0;
@@ -66,14 +65,14 @@
             color: #000;
         }
 
-        /* --- DAY SECTIONS & STATUS --- */
+        /* --- DAY SECTIONS --- */
         .status-badge { display: inline-block; padding: 6px 16px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; margin-bottom: 15px; text-transform: uppercase; }
         .online { background: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
         .offline { background: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
         .jam-operasional { display: block; font-size: 0.95rem; color: #666; margin-bottom: 25px; }
 
         .day-section { min-height: 100vh; padding: 80px 20px; display: flex; flex-direction: column; align-items: center; box-sizing: border-box; }
-        .day-card { background: white; width: 100%; max-width: 450px; overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.05); text-align: center; }
+        .day-card { background: white; width: 100%; max-width: 450px; overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.05); text-align: center; border: 1px solid #eee; }
         .img-lapak { width: 100%; height: 250px; object-fit: cover; }
         .day-content { padding: 40px; }
         .day-content h2 { font-family: 'Playfair Display', serif; font-size: 1.8rem; margin: 0; }
@@ -99,11 +98,21 @@
         <p>CIMOL LEGENDNYA INDRAMAYU YANG SUDAH ADA SEJAK TAHUN 2005</p>
         
         <div class="btn-container">
-            <a href="#history" class="btn-gold">OUR STORY</a>
+            <a href="#history" class="btn-gold">STORY</a>
             <a href="#senin" class="btn-gold">TEMPAT & HARI BUKA</a>
             <button onclick="cekLokasiOtomatis()" class="btn-luxury-gold">CEK LOKASI JUALAN HARI INI</button>
         </div>
     </div>
+
+    <section id="history" style="padding: 80px 20px; text-align: center; background: white;">
+        <div style="max-width: 800px; margin: 0 auto;">
+            <h2 style="font-family: 'Playfair Display', serif; font-size: 2.5rem;">Mahakarya Dari Sebuah Kegagalan</h2>
+            <div style="width: 50px; height: 3px; background: var(--gold); margin: 20px auto;"></div>
+            <p style="line-height: 1.8; color: #555; text-align: justify;">
+                Di balik renyah dan gurihnya Cimol Lezat Mang Uji, tersimpan rahasia perjuangan Ahmad Fauji (Mang Uji) sejak 2005. Berawal dari gerobak kayu yang didorong manual hingga kini ditarik motor, rasa legendaris ini tetap konsisten terjaga bagi pelanggan setia.
+            </p>
+        </div>
+    </section>
 
     <div id="senin" class="day-section">
         <div class="day-card">
@@ -120,9 +129,96 @@
         <a href="#selasa" class="nav-next">Next ↓</a>
     </div>
 
+    <div id="selasa" class="day-section luxury-bg">
+        <div class="day-card">
+            <img class="img-lapak" src="cfn.png">
+            <div class="day-content">
+                <div id="status-selasa" class="status-badge badge-status">MEMUAT...</div>
+                <h2>SELASA MALAM RABU</h2>
+                <h3>Lokasi: Bunderan Kijang</h3>
+                <span class="jam-operasional">Buka: 15:00 - 22:00 WIB</span>
+                <a href="https://goo.gl/maps/DLG3zC87gLoD5uug8" class="btn-maps" target="_blank">CEK LOKASI</a>
+                <a href="https://wa.me/6287843244480" class="btn-wa">NGOBROL DI WHATSAPP</a>
+            </div>
+        </div>
+        <a href="#kamis" class="nav-next">Next ↓</a>
+    </div>
+
+    <div id="rabu" class="day-section">
+        <div class="day-card">
+            <img class="img-lapak" src="off.png">
+            <div class="day-content">
+                <h2>RABU MALAM KAMIS</h2>
+                <h3 style="color:var(--danger) !important;">CLOSED (Day Off)</h3>
+                <p>Tidak jualan Mohon Maaf</p>
+            </div>
+        </div>
+        <a href="#kamis" class="nav-next">Next ↓</a>
+    </div>
+
+    <div id="kamis" class="day-section luxury-bg">
+        <div class="day-card">
+            <img class="img-lapak" src="cfn.png">
+            <div class="day-content">
+                <div id="status-kamis" class="status-badge badge-status">MEMUAT...</div>
+                <h2>KAMIS MALAM JUM'AT</h2>
+                <h3>Lokasi: KarangSong</h3>
+                <span class="jam-operasional">Buka: 15:00 - 22:00 WIB</span>
+                <a href="https://goo.gl/maps/iT3jTfowX7wuzvjU7" class="btn-maps" target="_blank">CEK LOKASI</a>
+                <a href="https://wa.me/6287843244480" class="btn-wa">NGOBROL DI WHATSAPP</a>
+            </div>
+        </div>
+        <a href="#jumat" class="nav-next">Next ↓</a>
+    </div>
+
+    <div id="jumat" class="day-section">
+        <div class="day-card">
+            <img class="img-lapak" src="sabtuan.png">
+            <div class="day-content">
+                <div id="status-jumat" class="status-badge badge-status">MEMUAT...</div>
+                <h2>JUM'AT MALAM SABTU</h2>
+                <h3>Lokasi: Sindang</h3>
+                <span class="jam-operasional">Buka: 15:00 - 22:00 WIB</span>
+                <a href="https://goo.gl/maps/AQJiFZMubnhETUsV9" class="btn-maps" target="_blank">CEK LOKASI</a>
+                <a href="https://wa.me/6287843244480" class="btn-wa">NGOBROL DI WHATSAPP</a>
+            </div>
+        </div>
+        <a href="#sabtu" class="nav-next">Next ↓</a>
+    </div>
+
+    <div id="sabtu" class="day-section luxury-bg">
+        <div class="day-card">
+            <img class="img-lapak" src="cfn.png">
+            <div class="day-content">
+                <div id="status-sabtu" class="status-badge badge-status">MEMUAT...</div>
+                <h2>SABTU MALAM MINGGU</h2>
+                <h3>Lokasi: CFN Alun-Alun</h3>
+                <span class="jam-operasional">Buka: 16:00 - 23:00 WIB</span>
+                <a href="https://goo.gl/maps/Q3PcyEtNBkoMuSPq9" class="btn-maps" target="_blank">CEK LOKASI</a>
+                <a href="https://wa.me/6287843244480" class="btn-wa">NGOBROL DI WHATSAPP</a>
+            </div>
+        </div>
+        <a href="#minggu-pagi" class="nav-next">Next ↓</a>
+    </div>
+
+    <div id="minggu-pagi" class="day-section">
+        <div class="day-card">
+            <img class="img-lapak" src="pminggu.png" alt="Kulcim">
+            <div class="day-content">
+                <div id="status-minggu-pagi" class="status-badge badge-status">MEMUAT...</div>
+                <h2>MINGGU PAGI</h2>
+                <h3>Lokasi: Area Kulcim Alun-alun</h3>
+                <span class="jam-operasional">Buka: 06:00 - 12:00 WIB</span>
+                <a href="https://goo.gl/maps/i6bWhbJSJyDm9ZdP7" class="btn-maps" target="_blank">CEK LOKASI</a>
+                <a href="https://wa.me/6287843244480" class="btn-wa">NGOBROL DI WHATSAPP</a>
+            </div>
+        </div>
+        <a href="#minggu-malam" class="nav-next">Next ↓</a>
+    </div>
+
     <div id="minggu-malam" class="day-section luxury-bg">
         <div class="day-card">
-            <img class="img-lapak" src="seninan.jpg">
+            <img class="img-lapak" src="seninan.jpg" alt="Sukadedel">
             <div class="day-content">
                 <div id="status-minggu-malam" class="status-badge badge-status">MEMUAT...</div>
                 <h2>MINGGU MALAM SENIN</h2>
@@ -130,6 +226,7 @@
                 <span class="jam-operasional">Buka: 15:00 - 22:00 WIB</span>
                 <a href="https://goo.gl/maps/t7HCoRk2q3jG4PjR8" class="btn-maps" target="_blank">CEK LOKASI</a>
                 <a href="https://wa.me/6287843244480" class="btn-wa">NGOBROL DI WHATSAPP</a>
+                
                 <div class="attention-box">
                     <span class="attention-title">Perhatian!</span>
                     <p class="attention-text">Silahkan ngobrol di WhatsApp dulu untuk memastikan sedang jualan atau tidak dan juga bisa booking dahulu. Terimakasih</p>
@@ -212,4 +309,5 @@
         setInterval(updateStatus, 60000);
     </script>
 </body>
-</html>
+                    </html>
+                    
