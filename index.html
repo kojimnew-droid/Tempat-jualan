@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CIMOL LEZAT MANG UJI - CIMOL LEGEND INDRAMAYU</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold: #d4af37;
+            --dark: #1a1a1a;
+            --ivory: #fcfaf2;
+            --danger: #e74c3c;
+        }
+
+        body { font-family: 'Poppins', sans-serif; margin: 0; padding: 0; background: var(--ivory); scroll-behavior: smooth; color: var(--dark); }
+
+        /* --- LUXURY HERO --- */
+        .hero {
+            height: 100vh;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), url('awal.png'); 
+            background-size: cover; background-position: center;
+            color: white; text-align: center; padding: 20px;
+        }
+        .hero h1 { 
+            font-family: 'Playfair Display', serif; font-size: 3.2rem; margin: 0; 
+            color: var(--gold); letter-spacing: 4px; line-height: 1.1; text-transform: uppercase;
+        }
+        .gold-divider { width: 40px; height: 1px; background: var(--gold); margin: 25px auto; }
+        .hero p { 
+            font-size: 0.85rem; margin-bottom: 45px; font-weight: 300; 
+            letter-spacing: 3px; opacity: 0.9; text-transform: uppercase;
+        }
+
+        .btn-container { display: flex; flex-direction: column; align-items: center; gap: 18px; width: 100%; max-width: 320px; }
+        .btn-gold-outline {
+            width: 100%; background: transparent; color: var(--gold); padding: 14px 0;
+            text-decoration: none; border: 1px solid rgba(212, 175, 55, 0.5);
+            font-weight: 400; transition: 0.4s ease; text-transform: uppercase;
+            font-size: 0.75rem; cursor: pointer; text-align: center; letter-spacing: 3px;
+        }
+        .btn-gold-outline:hover { background: rgba(212, 175, 55, 0.1); border-color: var(--gold); }
+
+        .btn-luxury-gold {
+            width: 100%; padding: 16px 0; text-decoration: none; text-transform: uppercase;
+            font-weight: 700; font-size: 0.8rem; letter-spacing: 3px; color: #463b15;
+            cursor: pointer; text-align: center; border-radius: 2px; border: none;
+            background: linear-gradient(135deg, #fdfcfb 0%, #e2d1c3 0%, #d4af37 25%, #f9f295 50%, #d4af37 75%, #b8860b 100%);
+            background-size: 200% auto; box-shadow: 0 4px 15px rgba(0,0,0,0.4); transition: 0.5s;
+        }
+        .btn-luxury-gold:hover { background-position: right center; transform: translateY(-2px); }
+
+        /* --- MENU PREVIEW --- */
+        .menu-preview { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; padding: 50px 20px; background: var(--dark); }
+        .menu-item { position: relative; width: 300px; height: 400px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        .menu-item img { width: 100%; height: 100%; object-fit: cover; transition: 1.5s ease; }
+        .menu-item:hover img { transform: scale(1.1); }
+        .menu-label { position: absolute; bottom: 20px; left: 20px; color: white; z-index: 2; }
+
+        /* --- JADWAL STYLE --- */
+        .day-section { min-height: 100vh; padding: 80px 20px; display: flex; flex-direction: column; align-items: center; box-sizing: border-box; }
+        .day-card { background: white; width: 100%; max-width: 450px; overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.05); text-align: center; border: 1px solid #eee; }
+        .img-lapak { width: 100%; height: 250px; object-fit: cover; }
+        .day-content { padding: 40px; }
+        .status-badge { display: inline-block; padding: 6px 16px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; margin-bottom: 15px; }
+        .online { background: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+        .offline { background: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
+        .btn-maps { display: block; background: var(--dark); color: white; padding: 18px; text-decoration: none; font-weight: 600; margin-bottom: 10px; }
+        .btn-wa { display: block; background: var(--gold); color: var(--dark); padding: 18px; text-decoration: none; font-weight: 600; }
+        .luxury-bg { background: #111 !important; color: white !important; }
+        .luxury-bg .day-card { background: #1a1a1a; border: 1px solid #333; }
+        .nav-next { margin-top: 30px; color: #aaa; text-decoration: none; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 2px; }
+        
+        /* --- KOTAK PERHATIAN --- */
+        .attention-box { margin-top: 25px; padding-top: 15px; border-top: 1px dashed #ddd; text-align: center; }
+        .attention-title { color: var(--danger); font-weight: bold; text-transform: uppercase; font-size: 0.9rem; display: block; margin-bottom: 5px; }
+        .attention-text { font-size: 0.85rem; color: #666; line-height: 1.4; margin: 0; }
+        .luxury-bg .attention-text { color: #bbb; }
+
+        /* --- CUSTOM LUXURY MODAL --- */
+        .modal-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.85); backdrop-filter: blur(8px);
+            display: none; justify-content: center; align-items: center; z-index: 9999;
+            opacity: 0; transition: opacity 0.4s ease;
+        }
+        .modal-content {
+            background: #1a1a1a; border: 1px solid var(--gold); width: 90%; max-width: 400px;
+            padding: 40px 20px; text-align: center; box-shadow: 0 0 30px rgba(212, 175, 55, 0.2);
+            transform: translateY(20px); transition: transform 0.4s ease;
+        }
+        .modal-overlay.active { display: flex; opacity: 1; }
+        .modal-overlay.active .modal-content { transform: translateY(0); }
+        .modal-header { display: flex; align-items: center; justify-content: center; gap: 15px; margin-bottom: 25px; }
+        .gold-line { height: 1px; width: 30px; background: var(--gold); }
+        .modal-body { color: #fff; }
+        .details-box { border-top: 1px solid rgba(212, 175, 55, 0.2); border-bottom: 1px solid rgba(212, 175, 55, 0.2); padding: 20px 0; margin: 20px 0; font-size: 0.85rem; color: #ccc; line-height: 1.8; }
+        .btn-modal-close { background: var(--gold); color: #000; border: none; padding: 12px 40px; font-weight: 700; cursor: pointer; letter-spacing: 2px; }
+    </style>
+</head>
+<body>
+
+    <div id="home" class="hero">
+        <h1>CIMOL LEZAT <br>MANG UJI</h1>
+        <div class="gold-divider"></div>
+        <p>CIMOL LEGENDNYA INDRAMAYU SEJAK TAHUN 2005</p>
+        <div class="btn-container">
+            <a href="#history" class="btn-gold-outline">STORY</a>
+            <a href="#senin" class="btn-gold-outline">TEMPAT & HARI BUKA</a>
+            <button onclick="cekLokasiOtomatis()" class="btn-luxury-gold">CEK LOKASI JUALAN HARI INI</button>
+        </div>
+    </div>
+
+    <section id="history" style="padding: 100px 20px; text-align: center; background: white;">
+        <div style="max-width: 800px; margin: 0 auto;">
+            <h2 style="font-family: 'Playfair Display', serif; font-size: 2.5rem;">Mahakarya Dari Sebuah Kegagalan</h2>
+            <div class="gold-divider" style="background:var(--gold)"></div>
+            <p style="line-height: 1.8; color: #555; text-align: justify;">Di balik renyah dan gurihnya Cimol Lezat Mang Uji, tersimpan rahasia perjuangan Ahmad Fauji (Mang Uji) sejak 2005. Berawal dari gerobak kayu hingga kini ditarik motor, rasa legendaris ini tetap konsisten terjaga.</p>
+        </div>
+    </section>
+
+    <section class="menu-preview">
+        <div class="menu-item">
+            <img src="kering.png" alt="Cimol Kering">
+            <div class="menu-label"><h3>CIMOL KERING</h3></div>
+        </div>
+        <div class="menu-item">
+            <img src="kuah.png" alt="Cimol Kuah">
+            <div class="menu-label"><h3>CIMOL KUAH</h3></div>
+        </div>
+    </section>
+
+    <div id="senin" class="day-section">
+        <div class="day-card">
+            <img class="img-lapak" src="cfn.png">
+            <div class="day-content">
+                <div id="status-senin" class="status-badge badge-status">MEMUAT...</div>
+                <h2>SENIN MALAM SELASA</h2>
+                <h3>Paoman</h3>
+                <span style="display:block; margin-bottom:15px;">15:00 - 22:00 WIB</span>
+                <a href="https://goo.gl/maps/Xmn8CXCkfUKDDEsm6" class="btn-maps" target="_blank">CEK LOKASI</a>
+                <a href="https://wa.me/6287843244480" class="btn-wa">WHATSAPP</a>
+            </div>
+        </div>
+        <a href="#selasa" class="nav-next">Hari berikutnya ↓</a>
+    </div>
+
+    <div id="selasa" class="day-section luxury-bg">
+        <div class="day-card">
+            <img class="img-lapak" src="cfn.png">
+            <div class="day-content">
+                <div id="status-selasa" class="status-badge badge-status">MEMUAT...</div>
+                <h2>SELASA MALAM RABU</h2>
+                <h3>Bunderan Kijang</h3>
+                <span style="display:block; margin-bottom:15px;">15:00 - 22:00 WIB</span>
+                <a href="https://goo.gl/maps/DLG3zC87gLoD5uug8" class="btn-maps" target="_blank">CEK LOKASI</a>
+                <a href="https://wa.me/6287843244480" class="btn-wa">WHATSAPP</a>
+            </div>
+        </div>
+        <a href="#rabu" class="nav-next">Hari berikutnya ↓</a>
+    </div>
+
+    <div id="rabu" class="day-section">
+        <div class="day-card">
+            <img class="img-lapak" src="off.png">
+            <div class="day-content">
+                <h2>RABU MALAM KAMIS</h2>
+                <h3 style="color:red;">CLOSED (Day Off)</h3>
+            </div>
+        </div>
+        <a href="#kamis" class="nav-next">Hari berikutnya ↓</a>
+    </div>
+
+    <div id="kamis" class="day-section luxury-bg">
+        <div class="day-card">
+            <img class="img-lapak" src="cfn.png">
+            <div class="day-content">
+                <div id="status-kamis" class="status-badge badge-status">MEMUAT...</div>
+                <h2>KAMIS MALAM JUM'AT</h2>
+                <h3>KarangSong</h3>
+                <span style="display:block; margin-bottom:15px;">15:00 - 22:00 WIB</span>
+                <a href="https://goo.gl/maps/iT3jTfowX7wuzvjU7" class="btn-maps" target="_blank">CEK LOKASI</a>
+                <a href="https://wa.me/6287843244480" class="btn-wa">WHATSAPP</a>
+            </div>
+        </div>
+        <a href="#jumat" class="nav-next">Hari berikutnya ↓</a>
+    </div>
+
+    <div id="jumat" class="day-section">
+        <div class="day-card">
+            <img class="img-lapak" src="sabtuan.png">
+            <div class="day-content">
+                <div id="status-jumat" class="status-badge badge-status">MEMUAT...</div>
+                <h2>JUM'AT MALAM SABTU</h2>
+                <h3>Sindang</h3>
+                <span style="display:block; margin-bottom:15px;">15:00 - 22:00 WIB</span>
+                <a href="https://goo.gl/maps/AQJiFZMubnhETUsV9" class="btn-maps" target="_blank">CEK LOKASI</a>
+                <a href="https://wa.me/6287843244480" class="btn-wa">WHATSAPP</a>
+            </div>
+        </div>
+        <a href="#sabtu" class="nav-next">Hari berikutnya ↓</a>
+    </div>
+
+    <div id="sabtu" class="day-section luxury-bg">
+        <div class="day-card">
+            <img class="img-lapak" src="cfn.png">
+            <div class="day-content">
+                <div id="status-sabtu" class="status-badge badge-status">MEMUAT...</div>
+                <h2>SABTU MALAM MINGGU</h2>
+                <h3>CFN Alun-Alun</h3>
+                <span style="display:block; margin-bottom:15px;">16:00 - 23:00 WIB</span>
+                <a href="https://goo.gl/maps/Q3PcyEtNBkoMuSPq9" class="btn-maps" target="_blank">CEK LOKASI</a>
+                <a href="https://wa.me/6287843244480" class="btn-wa">WHATSAPP</a>
+            </div>
+        </div>
+        <a href="#minggu-pagi" class="nav-next">Hari berikutnya ↓</a>
+    </div>
+
+    <div id="minggu-pagi" class="day-section">
+        <div class="day-card">
+            <img class="img-lapak" src="pminggu.png">
+            <div class="day-content">
+                <div id="status-minggu-pagi" class="status-badge badge-status">MEMUAT...</div>
+                <h2>MINGGU PAGI</h2>
+                <h3>Kulcim Alun-alun</h3>
+                <span style="display:block; margin-bottom:15px;">06:00 - 12:00 WIB</span>
+                <a href="https://goo.gl/maps/i6bWhbJSJyDm9ZdP7" class="btn-maps" target="_blank">CEK LOKASI</a>
+                <a href="https://wa.me/6287843244480" class="btn-wa">WHATSAPP</a>
+            </div>
+        </div>
+        <a href="#minggu-malam" class="nav-next">Hari berikutnya ↓</a>
+    </div>
+
+    <div id="minggu-malam" class="day-section luxury-bg">
+        <div class="day-card">
+            <img class="img-lapak" src="seninan.jpg">
+            <div class="day-content">
+                <div id="status-minggu-malam" class="status-badge badge-status">MEMUAT...</div>
+                <h2>MINGGU MALAM SENIN</h2>
+                <h3>Sukadedel</h3>
+                <span style="display:block; margin-bottom:15px;">15:00 - 22:00 WIB</span>
+                <a href="https://goo.gl/maps/t7HCoRk2q3jG4PjR8" class="btn-maps" target="_blank">CEK LOKASI</a>
+                <a href="https://wa.me/6287843244480" class="btn-wa">WHATSAPP</a>
+                <div class="attention-box">
+                    <span class="attention-title">Perhatian!</span>
+                    <p class="attention-text">Silahkan ngobrol di WhatsApp dulu untuk konfirmasi ketersediaan. Terimakasih</p>
+                </div>
+            </div>
+        </div>
+        <a href="#home" class="nav-next">Ke Atas ↑</a>
+    </div>
+
+    <div id="luxuryModal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="gold-line"></div>
+                <h2 id="modalTitle" style="font-family:'Playfair Display'; color:var(--gold); letter-spacing:3px; font-size:1rem; margin:0;">INFO</h2>
+                <div class="gold-line"></div>
+            </div>
+            <div class="modal-body">
+                <p id="modalPrimary" style="font-weight:600; margin-bottom:15px;"></p>
+                <div id="modalDetails" class="details-box"></div>
+            </div>
+            <button onclick="closeModal()" class="btn-modal-close">OKE</button>
+        </div>
+    </div>
+
+    <script>
+        const infoJadwal = {
+            1: { id: "senin", nama: "Senin Malam Selasa", lokasi: "Paoman", jam: "15:00 - 22:00" },
+            2: { id: "selasa", nama: "Selasa Malam Rabu", lokasi: "Bunderan Kijang", jam: "15:00 - 22:00" },
+            3: { id: "rabu", nama: "Libur", lokasi: "-", jam: "-" },
+            4: { id: "kamis", nama: "Kamis Malam Jumat", lokasi: "KarangSong", jam: "15:00 - 22:00" },
+            5: { id: "jumat", nama: "Jumat Malam Sabtu", lokasi: "Sindang", jam: "15:00 - 22:00" },
+            6: { id: "sabtu", nama: "Sabtu Malam Minggu", lokasi: "CFN Alun-Alun", jam: "16:00 - 23:00" },
+            0: { id: "minggu-pagi", nama: "Minggu Pagi", lokasi: "Kulcim", jam: "06:00 - 12:00" },
+            "0-malam": { id: "minggu-malam", nama: "Minggu Malam Senin", lokasi: "Sukadedel", jam: "15:00 - 22:00" }
+        };
+
+        let activeId = null;
+
+        function updateStatus() {
+            const now = new Date();
+            const hari = now.getDay();
+            const jam = now.getHours();
+            const des = jam + (now.getMinutes()/60);
+
+            document.querySelectorAll('.badge-status').forEach(el => {
+                el.innerText = "TUTUP"; el.className = "status-badge offline";
+            });
+
+            activeId = null;
+            if (hari === 0) {
+                if (des >= 6 && des < 12) activeId = "minggu-pagi";
+                else if (des >= 15 && des < 22) activeId = "minggu-malam";
+            } else if (hari === 6) {
+                if (des >= 16 && des < 23) activeId = "sabtu";
+            } else if ([1, 2, 4, 5].includes(hari)) {
+                if (des >= 15 && des < 22) {
+                    const map = { 1: "senin", 2: "selasa", 4: "kamis", 5: "jumat" };
+                    activeId = map[hari];
+                }
+            }
+
+            if (activeId) {
+                const el = document.getElementById("status-" + activeId);
+                if (el) { el.innerText = "● SEDANG BERJUALAN"; el.className = "status-badge online"; }
+            }
+        }
+
+        function openModal(title, primary, details) {
+            document.getElementById('modalTitle').innerText = title;
+            document.getElementById('modalPrimary').innerText = primary;
+            document.getElementById('modalDetails').innerHTML = details;
+            document.getElementById('luxuryModal').classList.add('active');
+        }
+
+        function closeModal() { document.getElementById('luxuryModal').classList.remove('active'); }
+
+        function cekLokasiOtomatis() {
+            const now = new Date();
+            const hari = now.getDay();
+            const jam = now.getHours();
+
+            if (activeId) {
+                window.location.hash = activeId;
+                const data = infoJadwal[hari === 0 && jam >= 15 ? "0-malam" : hari];
+                openModal("BERJUALAN", "KAMI SEDANG BUKA HARI INI!", "Silahkan cek lokasi pada bagian <b>" + data.nama + "</b> untuk petunjuk arah Maps.");
+            } 
+            else if ((hari !== 3 && jam < 15) || (hari === 6 && jam < 16) || (hari === 0 && jam < 6)) {
+                const dataHariIni = infoJadwal[hari === 0 && jam < 15 ? 0 : hari];
+                openModal("BELUM BUKA", "SABAR YA LUR, KAMI AKAN SEGERA BUKA", "📍 Lokasi: " + dataHariIni.lokasi + "<br>⏰ Jam: " + dataHariIni.jam + " WIB");
+            }
+            else {
+                let bsk = (hari + 1) % 7;
+                if (bsk === 3) bsk = 4;
+                const dataBesok = infoJadwal[bsk];
+                openModal("SUDAH TUTUP", "MOHON MAAF KAMI SUDAH TUTUP", "Silahkan berkunjung besok:<br>📅 Hari: " + dataBesok.nama + "<br>📍 Lokasi: " + dataBesok.lokasi + "<br>⏰ Jam: " + dataBesok.jam + " WIB");
+            }
+        }
+
+        updateStatus();
+        setInterval(updateStatus, 60000);
+    </script>
+</body>
+  </html>
+          
